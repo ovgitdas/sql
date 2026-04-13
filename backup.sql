@@ -62,7 +62,7 @@ CREATE TABLE `brand` (
   `created_on` datetime NOT NULL DEFAULT current_timestamp(),
   `modified_on` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`br_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +77,7 @@ INSERT INTO `brand` VALUES
 (3,'Minu','Minu',1,'2026-03-18 12:41:00','2026-03-18 12:41:00'),
 (4,'Silky Dhamaka','Piyush Textile',1,'2026-03-18 13:13:48','2026-03-18 13:13:48'),
 (5,'Jamdani Saree','Shantipur Jamdani',1,'2026-03-18 13:22:27','2026-03-18 13:22:27'),
-(6,'Silky Saree','Shri Textile',1,'2026-03-18 13:30:10','2026-03-18 13:30:10'),
+(6,'Shantipur','Shri Textile',1,'2026-03-18 13:30:10','2026-03-31 11:16:44'),
 (7,'Mulberry Silk Saree','Jeevan Sri',1,'2026-03-18 13:37:31','2026-03-18 13:37:31'),
 (8,'Evergreen Silk Saree','Reena Saree',1,'2026-03-18 13:43:20','2026-03-18 13:43:20'),
 (9,'Katan Silk Banarasi Saree','Shantipur Saree',1,'2026-03-18 13:49:04','2026-03-19 12:40:09'),
@@ -99,7 +99,13 @@ INSERT INTO `brand` VALUES
 (25,'leather Handbag for Women','Woadland',1,'2026-03-20 13:34:08','2026-03-20 13:34:08'),
 (26,'handcrafted cowrie shell necklace','Priksus',1,'2026-03-21 11:02:39','2026-03-21 11:02:39'),
 (27,'Jimmy Choo Silk Saree','Gulab Fashion PVT  LTD',1,'2026-03-21 11:38:44','2026-03-21 11:38:44'),
-(28,'Jute Necklace Set','Priksus',1,'2026-03-21 11:54:28','2026-03-21 11:54:28');
+(28,'Jute Necklace Set','Priksus',1,'2026-03-21 11:54:28','2026-03-21 11:54:28'),
+(29,'Lux Cozi','Lux',1,'2026-03-31 11:56:51','2026-03-31 11:56:51'),
+(30,'Rupa','Rupa  Company Limited',1,'2026-04-01 05:24:56','2026-04-01 05:24:56'),
+(31,'Sonajhuri','Sonajhuri PVT LTD',1,'2026-04-01 05:59:00','2026-04-01 05:59:00'),
+(32,'Dollar','Dollar Industries LTD',1,'2026-04-01 06:20:58','2026-04-01 06:20:58'),
+(33,'Boxer','MTSNCS',1,'2026-04-01 06:54:22','2026-04-01 06:54:22'),
+(34,'Neo','Gujarat PVT LTD',1,'2026-04-01 11:39:14','2026-04-01 11:39:14');
 /*!40000 ALTER TABLE `brand` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -190,7 +196,8 @@ INSERT INTO `category` VALUES
 (8,60,'Wood Craft',1,'2025-07-12 16:32:56','2025-07-12 11:02:56'),
 (8,61,'Terracota',1,'2025-07-12 16:32:56','2025-07-12 11:02:56'),
 (8,62,'Metal Craft',1,'2025-07-12 16:32:56','2025-07-12 11:02:56'),
-(8,63,'Dokra Art',1,'2025-07-12 16:32:56','2025-07-12 11:02:56');
+(8,63,'Dokra Art',1,'2025-07-12 16:32:56','2025-07-12 11:02:56'),
+(2,64,'Inner Wear',1,'2026-04-11 10:02:00','2026-04-11 10:02:00');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -221,6 +228,31 @@ LOCK TABLES `category_generic_map` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `charge`
+--
+
+DROP TABLE IF EXISTS `charge`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `charge` (
+  `charge_id` int(11) NOT NULL AUTO_INCREMENT,
+  `charge_head` varchar(255) NOT NULL,
+  `amount` decimal(10,2) NOT NULL,
+  `min_order_amount` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`charge_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `charge`
+--
+
+LOCK TABLES `charge` WRITE;
+/*!40000 ALTER TABLE `charge` DISABLE KEYS */;
+/*!40000 ALTER TABLE `charge` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `generic`
 --
 
@@ -237,7 +269,7 @@ CREATE TABLE `generic` (
   `created_on` timestamp NOT NULL DEFAULT current_timestamp(),
   `modified_on` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`gen_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -253,7 +285,12 @@ INSERT INTO `generic` VALUES
 (4,0,'Ladies HandBag',NULL,0,0,'2026-03-20 13:14:32','2026-03-20 13:16:50'),
 (5,0,'leather handbags',NULL,0,0,'2026-03-20 13:32:33','2026-03-20 13:32:33'),
 (6,0,'Handcrafted Cowrie Shell Necklace',NULL,0,0,'2026-03-21 11:03:40','2026-03-21 11:08:49'),
-(7,0,'Jute Necklace Set',NULL,0,0,'2026-03-21 11:51:50','2026-03-21 11:51:50');
+(7,0,'Jute Necklace Set',NULL,0,0,'2026-03-21 11:51:50','2026-03-21 11:51:50'),
+(8,0,'Men Underwear',NULL,0,0,'2026-03-31 11:55:15','2026-03-31 11:55:15'),
+(9,0,'Bermuda Shorts',NULL,0,0,'2026-04-01 05:23:06','2026-04-01 05:23:06'),
+(10,0,'Half Shirt',NULL,0,0,'2026-04-01 05:56:31','2026-04-01 05:56:31'),
+(11,0,'Men Kurta',NULL,0,0,'2026-04-01 06:15:26','2026-04-01 06:15:26'),
+(12,0,'Punjabi For Men ',NULL,0,0,'2026-04-01 11:47:24','2026-04-01 11:52:37');
 /*!40000 ALTER TABLE `generic` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -332,8 +369,9 @@ CREATE TABLE `item` (
   `rank` float unsigned NOT NULL,
   `created_on` timestamp NOT NULL DEFAULT current_timestamp(),
   `modified_on` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `product_id` varchar(30) NOT NULL,
   `sound` tinyint(4) NOT NULL DEFAULT 0,
+  `item_description` text NOT NULL DEFAULT '',
+  `item_name` text NOT NULL DEFAULT '',
   PRIMARY KEY (`item_id`),
   KEY `vendor_id_key` (`vendor_id`),
   KEY `generic_id_key` (`gen_id`),
@@ -351,71 +389,87 @@ CREATE TABLE `item` (
 LOCK TABLES `item` WRITE;
 /*!40000 ALTER TABLE `item` DISABLE KEYS */;
 INSERT INTO `item` VALUES
-('CC0V1D70NM','CCFR828QMM',9,5,3,1,860,650,1,1,0,1,'2026-03-21 10:46:10','2026-03-21 10:46:51','',1),
-('CC1CMRFXMM','CCFR828QMM',9,13,3,1,1420,1200,1,1,0,1,'2026-03-19 12:18:08','2026-03-19 12:19:12','',1),
-('CC1KXO3WMM','CCFR828QMM',9,9,3,1,2450,2160,1,1,0,1,'2026-03-18 13:52:21','2026-03-18 13:53:47','',1),
-('CC1SBQJXMM','CCFR828QMM',9,17,3,1,2150,1820,1,1,0,1,'2026-03-19 14:09:06','2026-03-19 14:09:30','',1),
-('CC1W3AHXMM','CCFR828QMM',9,15,3,1,975,820,1,1,0,1,'2026-03-19 13:00:30','2026-03-19 13:01:53','',1),
-('CC2FKUVYMM','CCFR828QMM',9,9,3,1,1050,900,1,1,0,1,'2026-03-20 12:36:05','2026-03-20 12:37:28','',1),
-('CC3FB1CXMM','CCFR828QMM',9,11,3,1,735,690,1,1,0,1,'2026-03-19 10:33:42','2026-03-19 12:05:25','',1),
-('CC3KP090NM','CCFR828QMM',9,4,3,1,799,510,1,1,0,1,'2026-03-21 11:32:33','2026-03-21 11:33:11','',1),
-('CC3ODJ80NM','CCFR828QMM',9,20,3,1,599,380,1,1,0,1,'2026-03-21 11:19:04','2026-03-21 11:20:00','',1),
-('CC6B0BYYMM','CCFR828QMM',59,25,4,1,199,130,1,1,0,1,'2026-03-20 13:44:52','2026-03-20 13:45:14','',1),
-('CC741JIXMM','CCFR828QMM',9,9,3,1,3960,3700,1,1,0,1,'2026-03-19 13:35:26','2026-03-19 13:38:02','',1),
-('CC85NDWYMM','CCFR828QMM',9,22,3,1,799,690,1,1,0,1,'2026-03-20 12:50:55','2026-03-20 12:51:54','',1),
-('CC9R8BA0NM','CCFR828QMM',9,20,3,1,599,300,1,1,0,1,'2026-03-21 12:08:44','2026-03-21 12:09:05','',1),
-('CCA6A0IXMM','CCFR828QMM',9,9,3,1,2250,2015,1,1,0,1,'2026-03-19 13:20:51','2026-03-19 13:23:15','',1),
-('CCADDP80NM','CCFR828QMM',9,4,3,1,1199,980,1,1,0,1,'2026-03-21 11:23:44','2026-03-21 11:25:25','',1),
-('CCAJAIHXMM','CCFR828QMM',9,14,3,1,1220,940,1,1,0,1,'2026-03-19 13:06:52','2026-03-19 13:08:02','',1),
-('CCAMXSJXMM','CCFR828QMM',9,17,3,1,2150,1820,1,1,0,1,'2026-03-19 14:11:07','2026-03-19 14:11:24','',1),
-('CCB0R5A0NM','CCFR828QMM',9,20,3,1,599,300,1,1,0,1,'2026-03-21 12:04:28','2026-03-21 12:06:10','',1),
-('CCB2CYVYMM','CCFR828QMM',9,11,3,1,850,690,1,1,0,1,'2026-03-20 12:39:01','2026-03-20 12:39:44','',1),
-('CCBJD93WMM','CCFR828QMM',9,7,3,1,1050,854,1,1,0,1,'2026-03-18 13:40:15','2026-03-18 13:42:08','',1),
-('CCBOXCA0NM','CCFR828QMM',9,20,3,1,599,300,1,1,0,1,'2026-03-21 12:10:03','2026-03-21 12:11:33','',1),
-('CCCZK0XYMM','CCFR828QMM',9,12,3,1,1150,900,1,1,0,1,'2026-03-20 13:08:46','2026-03-20 13:09:26','',1),
-('CCD1E4XYMM','CCFR828QMM',9,23,3,1,885,690,1,1,0,1,'2026-03-20 13:11:43','2026-03-20 13:12:35','',1),
-('CCE2KDVYMM','CCFR828QMM',9,19,3,1,1125,975,1,1,0,1,'2026-03-20 12:22:52','2026-03-20 12:23:22','',1),
-('CCEHXCGXMM','CCFR828QMM',9,12,3,1,1050,900,1,1,0,1,'2026-03-19 12:34:42','2026-03-19 12:36:11','',1),
-('CCF3Y0YYMM','CCFR828QMM',55,25,5,1,425,350,1,1,0,1,'2026-03-20 13:37:02','2026-03-20 13:38:03','',1),
-('CCFBGOVYMM','CCFR828QMM',9,21,3,1,1230,1000,1,1,0,1,'2026-03-20 12:31:20','2026-03-20 12:33:03','',1),
-('CCFLOAIXMM','CCFR828QMM',9,9,3,1,3150,2815,1,1,0,1,'2026-03-19 13:28:56','2026-03-19 13:29:51','',1),
-('CCFOJSUYMM','CCFR828QMM',9,19,3,1,1520,1300,1,1,0,1,'2026-03-20 12:06:31','2026-03-20 12:09:49','',1),
-('CCH30O2WMM','CCFR828QMM',9,5,3,1,1450,1320,1,1,0,1,'2026-03-18 13:23:38','2026-03-18 13:24:46','',1),
-('CCHA8W90NM','CCFR828QMM',52,28,7,1,199,120,1,1,0,1,'2026-03-21 11:57:04','2026-03-21 11:57:30','',1),
-('CCIVGV80NM','CCFR828QMM',9,4,3,1,899,720,1,1,0,1,'2026-03-21 11:28:28','2026-03-21 11:29:52','',1),
-('CCJ91KFXMM','CCFR828QMM',9,12,3,1,1050,900,1,1,0,1,'2026-03-19 12:12:14','2026-03-19 12:14:00','',1),
-('CCJSS1VYMM','CCFR828QMM',9,20,3,1,1050,820,1,1,0,1,'2026-03-20 12:13:43','2026-03-20 12:16:03','',1),
-('CCL0AP60NM','CCFR828QMM',9,20,3,1,1050,820,1,1,0,1,'2026-03-21 10:27:40','2026-03-21 10:32:40','',1),
-('CCM4D5GXMM','CCFR828QMM',9,5,3,1,370,285,1,1,0,1,'2026-03-19 12:28:49','2026-03-19 12:30:22','',1),
-('CCMMRV3WMM','CCFR828QMM',9,10,3,1,2185,1815,1,1,0,1,'2026-03-18 13:57:40','2026-03-18 13:58:47','',1),
-('CCNKH0A0NM','CCFR828QMM',9,20,3,1,599,300,1,1,0,1,'2026-03-21 12:00:22','2026-03-21 12:02:28','',1),
-('CCNPTZGXMM','CCFR828QMM',9,14,3,1,1260,1000,1,1,0,1,'2026-03-19 12:52:30','2026-03-19 12:54:59','',1),
-('CCQIF2HYMM','CCFR828QMM',9,18,3,1,850,635,1,1,0,1,'2026-03-20 05:42:18','2026-03-20 05:43:23','',1),
-('CCQJRZ60NM','CCFR828QMM',9,20,3,1,1399,1150,1,1,0,1,'2026-03-21 10:35:50','2026-03-21 10:42:57','',1),
-('CCQTVJCTMM','CCFR828QMM',10,1,1,1,110,100,1,1,0,1,'2026-03-16 15:37:03','2026-03-16 15:40:19','',1),
-('CCQW224WMM','CCFR828QMM',9,10,3,1,2195,1820,1,1,0,1,'2026-03-18 14:02:34','2026-03-18 14:04:04','',1),
-('CCQWR03WMM','CCFR828QMM',9,6,3,1,780,690,1,1,0,1,'2026-03-18 13:33:34','2026-03-18 13:34:37','',1),
-('CCRL8280NM','CCFR828QMM',52,26,6,1,199,120,1,1,0,1,'2026-03-21 11:05:45','2026-03-21 11:06:05','',1),
-('CCRTS91WMM','CCFR828QMM',9,3,3,1,1350,1200,1,1,0,1,'2026-03-18 12:44:36','2026-03-18 12:52:57','',1),
-('CCSBS8GXMM','CCFR828QMM',9,5,3,1,370,285,1,1,0,1,'2026-03-19 12:31:29','2026-03-19 12:32:52','',1),
-('CCT8IM80NM','CCFR828QMM',9,20,3,1,599,420,1,1,0,1,'2026-03-21 11:21:30','2026-03-21 11:22:20','',1),
-('CCT8SE2WMM','CCFR828QMM',9,4,3,1,750,685,1,1,0,1,'2026-03-18 13:16:28','2026-03-18 13:18:49','',1),
-('CCTCGC80NM','CCFR828QMM',52,26,6,1,199,120,1,1,0,1,'2026-03-21 11:13:41','2026-03-21 11:13:57','',1),
-('CCV1LE3WMM','CCFR828QMM',9,8,3,1,675,550,1,1,0,1,'2026-03-18 13:44:18','2026-03-18 13:45:37','',1),
-('CCW6Z96UMM','CCFR828QMM',19,2,2,1,75,65,1,1,0,1,'2026-03-17 05:29:09','2026-03-17 05:36:46','',1),
-('CCW9KF90NM','CCFR828QMM',9,27,3,1,1399,1055,1,1,0,1,'2026-03-21 11:44:06','2026-03-21 11:44:47','',1),
-('CCWC52GXMM','CCFR828QMM',9,5,3,1,425,375,1,1,0,1,'2026-03-19 12:26:19','2026-03-19 12:27:00','',1),
-('CCWCD6WYMM','CCFR828QMM',9,19,3,1,799,690,1,1,0,1,'2026-03-20 12:45:16','2026-03-20 12:46:06','',1),
-('CCWK8LXYMM','CCFR828QMM',55,24,4,1,299,150,1,1,0,1,'2026-03-20 13:24:49','2026-03-20 13:25:24','',1),
-('CCWKLTWYMM','CCFR828QMM',9,12,3,1,1150,900,1,1,0,1,'2026-03-20 13:03:20','2026-03-20 13:04:26','',1),
-('CCX1BNGXMM','CCFR828QMM',9,9,3,1,2495,2290,1,1,0,1,'2026-03-19 12:42:46','2026-03-19 12:45:36','',1),
-('CCX3MG5UMM','CCFR828QMM',19,2,2,1,85,75,1,1,0,1,'2026-03-17 05:06:20','2026-03-17 05:16:07','',1),
-('CCXRQ6IXMM','CCFR828QMM',9,11,3,1,1430,1140,1,1,0,1,'2026-03-19 13:25:53','2026-03-19 13:26:41','',1),
-('CCXU6EIXMM','CCFR828QMM',9,9,3,1,2265,2100,1,1,0,1,'2026-03-19 13:31:40','2026-03-19 13:33:07','',1),
-('CCYTRGVYMM','CCFR828QMM',9,6,3,1,1740,1570,1,1,0,1,'2026-03-20 12:25:22','2026-03-20 12:27:43','',1),
-('CCZAXTHXMM','CCFR828QMM',9,16,3,1,1050,850,1,1,0,1,'2026-03-19 13:15:54','2026-03-19 13:16:36','',1),
-('CCZCQEYYMM','CCFR828QMM',9,20,3,1,425,380,1,1,0,1,'2026-03-20 13:47:45','2026-03-20 13:48:16','',1),
-('CCZXY6YYMM','CCFR828QMM',59,25,4,1,199,130,1,1,0,1,'2026-03-20 13:41:43','2026-03-20 13:42:32','',1);
+('CC0V1D70NM','CCFR828QMM',9,5,3,1,860,650,1,1,0,1,'2026-03-21 10:46:10','2026-03-26 18:05:48',1,'Pure Cotton jamdani Saree','Pure Cotton jamdani Saree'),
+('CC1CMRFXMM','CCFR828QMM',9,13,3,1,1420,1200,1,1,0,1,'2026-03-19 12:18:08','2026-03-26 18:05:48',1,'Dhakai Muslin Saree','Dhakai Muslin Saree'),
+('CC1KXO3WMM','CCFR828QMM',9,9,3,1,2450,2160,1,1,0,1,'2026-03-18 13:52:21','2026-03-26 18:05:48',1,'Katan Silk Saree','Katan Silk Saree'),
+('CC1SBQJXMM','CCFR828QMM',9,17,3,1,2150,1820,1,1,0,1,'2026-03-19 14:09:06','2026-03-26 18:05:48',1,' The elegance of traditional fabric and finery with Blouse .','Thausand Butti Silk Saree'),
+('CC1W3AHXMM','CCFR828QMM',9,15,3,1,975,820,1,1,0,1,'2026-03-19 13:00:30','2026-03-26 18:05:48',1,'Dhola silk sarees are luxurious, soft, and lightweight garments made from a blend of silk and synthetic fibers , featuring a subtle sheen and high durability.','Dhola Silk Saree'),
+('CC2FKUVYMM','CCFR828QMM',9,9,3,1,1050,900,1,1,0,1,'2026-03-20 12:36:05','2026-03-26 18:05:48',1,'Pure Soft & Silky','Maliska Sartin Silk Saree'),
+('CC3FB1CXMM','CCFR828QMM',9,11,3,1,735,690,1,1,0,1,'2026-03-19 10:33:42','2026-03-26 18:05:48',1,'Open Border Silk Saree','Open Border Silk Saree'),
+('CC3KP090NM','CCFR828QMM',9,4,3,1,799,510,1,1,0,1,'2026-03-21 11:32:33','2026-03-26 18:05:48',1,'Pure Silk Saree','Pure Silk Saree'),
+('CC3ODJ80NM','CCFR828QMM',9,20,3,1,599,380,1,1,0,1,'2026-03-21 11:19:04','2026-03-26 18:05:48',1,'Pure Cotton Handloom Saree','Pure Cotton Handloom Saree'),
+('CC3XW6ZFNM','CCFR828QMM',46,34,9,0,249,190,1,1,0,1,'2026-04-01 11:41:45','2026-04-01 11:43:49',1,'technical water sports shorts',' Neo Bermuda '),
+('CC4D30PFNM','CCFR828QMM',46,33,9,0,299,190,1,1,0,1,'2026-04-01 06:56:31','2026-04-01 07:01:40',1,'Pure Cotton Bermuda Shorts','Pure Cotton Bermuda Shorts'),
+('CC6B0BYYMM','CCFR828QMM',59,25,4,1,199,130,1,1,0,1,'2026-03-20 13:44:52','2026-03-26 18:05:48',1,'leather handbags for women','Hand Purse'),
+('CC6CPLNFNM','CCFR828QMM',43,31,11,0,399,215,1,1,0,1,'2026-04-01 06:17:20','2026-04-01 06:18:32',1,'Men Printed Pure Cotton Blend Straight Kurta ','Men Printed Cotton Blend Straight Kurta '),
+('CC6YQOOFNM','CCFR828QMM',10,31,11,0,299,215,1,1,0,1,'2026-04-01 06:47:41','2026-04-01 06:50:26',1,'Man Printed Cotton Blend Straight Kurta','Man Printed Cotton Blend Straight Kurta'),
+('CC741JIXMM','CCFR828QMM',9,9,3,1,3960,3700,1,1,0,1,'2026-03-19 13:35:26','2026-03-26 18:05:48',1,'Katan Silk Bararasi Saree With Blouse Piece .','Katan Silk Banarasi Saree '),
+('CC85NDWYMM','CCFR828QMM',9,22,3,1,799,690,1,1,0,1,'2026-03-20 12:50:55','2026-03-26 18:05:48',1,'Evergreen Silk Saree ','Evergreen Silk Saree '),
+('CC9R8BA0NM','CCFR828QMM',9,20,3,1,599,300,1,1,0,1,'2026-03-21 12:08:44','2026-03-26 18:05:48',1,'Handloom Saree','Handloom Saree'),
+('CCA6A0IXMM','CCFR828QMM',9,9,3,1,2250,2015,1,1,0,1,'2026-03-19 13:20:51','2026-03-26 18:05:48',1,'Katan Open Border Slik Banarasi Saree With Blouse Piece .','Katan Silk Banarasi Saree'),
+('CCADDP80NM','CCFR828QMM',9,4,3,1,1199,980,1,1,0,1,'2026-03-21 11:23:44','2026-03-26 18:05:48',1,'Madhosh Silk Saree','Madhosh Silk Saree'),
+('CCAJAIHXMM','CCFR828QMM',9,14,3,1,1220,940,1,1,0,1,'2026-03-19 13:06:52','2026-03-26 18:05:48',1,'A Pochampally saree is a traditional handwoven saree made in Bhoodan Pochampally, Telangana, India, renowned for its distinctive geometric patterns and vibrant colors.','Ponchampalli Chilam Silk Saree'),
+('CCAMXSJXMM','CCFR828QMM',9,17,3,1,2150,1820,1,1,0,1,'2026-03-19 14:11:07','2026-03-26 18:05:48',1,'The elegance of traditional fabric and finery with Blouse .','1000 Butti Silk Saree'),
+('CCB0R5A0NM','CCFR828QMM',9,20,3,1,599,300,1,1,0,1,'2026-03-21 12:04:28','2026-03-26 18:05:48',1,'Handloom Saree','Handloom Saree'),
+('CCB2CYVYMM','CCFR828QMM',9,11,3,1,850,690,1,1,0,1,'2026-03-20 12:39:01','2026-03-26 18:05:48',1,'Open Border Silk Saree','Open Border Silk Saree'),
+('CCBJD93WMM','CCFR828QMM',9,7,3,1,1050,854,1,1,0,1,'2026-03-18 13:40:15','2026-03-26 18:05:48',1,'Mulberry Silk Saree','Mulberry Silk Saree'),
+('CCBL22NFNM','CCFR828QMM',31,31,10,0,399,240,1,1,0,1,'2026-04-01 06:02:04','2026-04-01 06:03:40',1,'Printed Half Sleeve Shirt for Men','Printed Half Sleeve Shirt for Men'),
+('CCBOXCA0NM','CCFR828QMM',9,20,3,1,599,300,1,1,0,1,'2026-03-21 12:10:03','2026-03-26 18:05:48',1,'Handloom Saree','Handloom Saree'),
+('CCCZK0XYMM','CCFR828QMM',9,12,3,1,1150,900,1,1,0,1,'2026-03-20 13:08:46','2026-03-26 18:05:48',1,'Maliska Sartin Silk Saree','Maliska Sartin Silk Saree'),
+('CCD1E4XYMM','CCFR828QMM',9,23,3,1,885,690,1,1,0,1,'2026-03-20 13:11:43','2026-03-26 18:05:48',1,'Baluchuri Silk Saree','Baluchuri Silk Saree'),
+('CCE2KDVYMM','CCFR828QMM',9,19,3,1,1125,975,1,1,0,1,'2026-03-20 12:22:52','2026-03-26 18:05:48',1,'Swarnachari sarees are opulent Bengali pure silk sarees .','Pure Silk Swarnachuri Saree'),
+('CCEHXCGXMM','CCFR828QMM',9,12,3,1,1050,900,1,1,0,1,'2026-03-19 12:34:42','2026-03-26 18:05:48',1,'Maliska Sartin Saree','Maliska Sartin Saree'),
+('CCEIGALENM','CCFR828QMM',9,6,3,0,499,375,1,1,0,1,'2026-03-31 12:24:50','2026-03-31 12:26:34',1,'Handloom sarees often have slight, charming irregularities, such as tiny knots or thread pulls, indicating they are made by hand, not machines.','Handloom Saree'),
+('CCF3Y0YYMM','CCFR828QMM',55,25,5,1,425,350,1,1,0,1,'2026-03-20 13:37:02','2026-03-26 18:05:48',1,'leather handbags for women','leather handbags for women'),
+('CCFBGOVYMM','CCFR828QMM',9,21,3,1,1230,1000,1,1,0,1,'2026-03-20 12:31:20','2026-03-26 18:05:48',1,' Frequently highlights Bollywood style, casual wear, and party wear.','Guddu Saree'),
+('CCFLOAIXMM','CCFR828QMM',9,9,3,1,3150,2815,1,1,0,1,'2026-03-19 13:28:56','2026-03-26 18:05:48',1,'Katan Silk Banarasi Saree With Blouse Piece .','Katan Silk Banarasi Saree '),
+('CCFOJSUYMM','CCFR828QMM',9,19,3,1,1520,1300,1,1,0,1,'2026-03-20 12:06:31','2026-03-26 18:05:48',1,'Swarnachuram Saree','Swarnachuram Saree'),
+('CCFW5VNFNM','CCFR828QMM',46,32,8,0,199,125,1,1,0,1,'2026-04-01 06:24:41','2026-04-01 06:35:03',1,'100% super combed cotton, designed for all-day comfort with soft elastic waistbands and antimicrobial technology to prevent odor.','Dollar Interlock Trunk (SCD)'),
+('CCGFJB0GNM','CCFR828QMM',39,31,12,0,410,280,1,1,0,1,'2026-04-01 12:13:21','2026-04-01 12:17:45',1,'A popular ethnic garment combining traditional styling with contemporary comfort','Men Printed Cotton Blend Straight Kurta'),
+('CCH30O2WMM','CCFR828QMM',9,5,3,1,1450,1320,1,1,0,1,'2026-03-18 13:23:38','2026-03-26 18:05:48',1,'Jamdani Saree','Jamdani Saree'),
+('CCHA8W90NM','CCFR828QMM',52,28,7,1,199,120,1,1,0,1,'2026-03-21 11:57:04','2026-03-26 18:05:48',1,'Deep Yellow Owl Jute Necklace Set\r\n','Deep Yellow Jute Owl Necklace Set'),
+('CCIVGV80NM','CCFR828QMM',9,4,3,1,899,720,1,1,0,1,'2026-03-21 11:28:28','2026-03-26 18:05:48',1,'Saniya Patli Pallu Silk Saree With Blouse Piece','Saniya Patli Pallu Silk Saree'),
+('CCJ91KFXMM','CCFR828QMM',9,12,3,1,1050,900,1,1,0,1,'2026-03-19 12:12:14','2026-03-26 18:05:48',1,'Sartin Saree','Sartin Saree'),
+('CCJSN3LENM','CCFR828QMM',9,6,3,0,799,515,1,1,0,1,'2026-03-31 12:19:33','2026-03-31 12:23:31',1,' Handloom sarees often have slight, charming irregularities, such as tiny knots or thread pulls, indicating they are made by hand, not machines.','Handloom saree'),
+('CCJSS1VYMM','CCFR828QMM',9,20,3,1,1050,820,1,1,0,1,'2026-03-20 12:13:43','2026-03-26 18:05:48',1,'comfortable and breathable, which makes them suitable to wear all year round. Cotton sarees are suitable during the monsoons, winters, and summers.','Handloom Cotton Saree'),
+('CCL0AP60NM','CCFR828QMM',9,20,3,1,1050,820,1,1,0,1,'2026-03-21 10:27:40','2026-03-26 18:05:48',1,'Maahi Handloom Saree','Maahi Handloom Saree'),
+('CCM4D5GXMM','CCFR828QMM',9,5,3,1,370,285,1,1,0,1,'2026-03-19 12:28:49','2026-03-26 18:05:48',1,'Jamdani Saree','Jamdani Saree'),
+('CCMMRV3WMM','CCFR828QMM',9,10,3,1,2185,1815,1,1,0,1,'2026-03-18 13:57:40','2026-03-26 18:05:48',1,'Karni Chilam Silk Saree','Karni Chilam Silk Saree'),
+('CCNKH0A0NM','CCFR828QMM',9,20,3,1,599,300,1,1,0,1,'2026-03-21 12:00:22','2026-03-26 18:05:48',1,'Handloom Saree','Handloom Saree'),
+('CCNPTZGXMM','CCFR828QMM',9,14,3,1,1260,1000,1,1,0,1,'2026-03-19 12:52:30','2026-03-26 18:05:48',1,'Pochampalli Silk Woven Design Saree with Unstitched Blouse','Pochampalli Chilam Silk Saree'),
+('CCP2TFKENM','CCFR828QMM',44,29,8,0,189,125,1,1,0,1,'2026-03-31 12:01:00','2026-03-31 12:04:39',1,'100% combed cotton, long-style innerwear designed for maximum comfort, breathability, and durability.','Lux Cozi Longs Interlock FCD'),
+('CCPPP30GNM','CCFR828QMM',39,31,12,0,450,300,1,1,0,1,'2026-04-01 12:07:15','2026-04-01 12:10:28',1,'A popular ethnic garment combining traditional styling with contemporary comfort','Men Printed Cotton Blend Straight Punjabi'),
+('CCQIF2HYMM','CCFR828QMM',9,18,3,1,850,635,1,1,0,1,'2026-03-20 05:42:18','2026-03-26 18:05:48',1,'Classic Indigo Saree','Classic Indigo Saree'),
+('CCQJRZ60NM','CCFR828QMM',9,20,3,1,1399,1150,1,1,0,1,'2026-03-21 10:35:50','2026-03-26 18:05:48',1,'Maahi Handloom Saree','Maahi Handloom Saree'),
+('CCQTVJCTMM','CCFR828QMM',10,1,1,1,110,100,1,1,0,1,'2026-03-16 15:37:03','2026-03-26 18:05:48',1,'demo description','Pname'),
+('CCQW224WMM','CCFR828QMM',9,10,3,1,2195,1820,1,1,0,1,'2026-03-18 14:02:34','2026-03-26 18:05:48',1,'Karni Chilam Silk Saree','Karni Chilam Silk Saree'),
+('CCQWR03WMM','CCFR828QMM',9,6,3,1,780,690,1,1,0,1,'2026-03-18 13:33:34','2026-03-26 18:05:48',1,'Silky Saree','Silky Saree'),
+('CCRL8280NM','CCFR828QMM',52,26,6,1,199,120,1,1,0,1,'2026-03-21 11:05:45','2026-03-26 18:05:48',1,'Handmade Green & White Cowrie Shell Jewelry Set for Women – Ethnic Necklace & Earrings – Traditional & Tribal Jewellery for Festivals','Handcrafted cowrie shell necklace'),
+('CCRTS91WMM','CCFR828QMM',9,3,3,1,1350,1200,1,1,0,1,'2026-03-18 12:44:36','2026-03-26 18:05:48',1,'Minu Silk Saree','Minu Silk Saree'),
+('CCSBS8GXMM','CCFR828QMM',9,5,3,1,370,285,1,1,0,1,'2026-03-19 12:31:29','2026-03-26 18:05:48',1,'Jamdani Saree','Jamdani Saree'),
+('CCT8IM80NM','CCFR828QMM',9,20,3,1,599,420,1,1,0,1,'2026-03-21 11:21:30','2026-03-26 18:05:48',1,'Pure Cotton Handloom Saree','Pure Cotton Handloom Saree'),
+('CCT8SE2WMM','CCFR828QMM',9,4,3,1,750,685,1,1,0,1,'2026-03-18 13:16:28','2026-03-26 18:05:48',1,'Open Border Silk Saree','Open Border Silk Saree'),
+('CCTCGC80NM','CCFR828QMM',52,26,6,1,199,120,1,1,0,1,'2026-03-21 11:13:41','2026-03-26 18:05:48',1,'Handcrafted Durga Devi Pendant Necklace, Traditional Indian Design with Shell Beads, Green and White','Handcrafted cowrie shell necklace'),
+('CCTLPI0GNM','CCFR828QMM',39,31,12,0,410,280,1,1,0,1,'2026-04-01 12:18:55','2026-04-01 12:22:25',1,'A popular ethnic garment combining traditional styling with contemporary comfort','Men Printed Cotton Blend Straight Kurta'),
+('CCUQT1YFNM','CCFR828QMM',31,31,10,0,299,240,1,1,0,1,'2026-04-01 11:09:48','2026-04-01 11:17:31',1,'	100% Cotton Half Sleeve Printed Shirt for Men & Lightweight & soft fabric.','Printed Half Sleeve Shirt for Man'),
+('CCUWJNZFNM','CCFR828QMM',39,31,12,0,355,280,1,1,0,1,'2026-04-01 11:54:41','2026-04-01 11:56:30',1,'A popular ethnic garment combining traditional styling with contemporary comfort','Men Printed Cotton Blend Straight Punjabi'),
+('CCV1LE3WMM','CCFR828QMM',9,8,3,1,675,550,1,1,0,1,'2026-03-18 13:44:18','2026-03-26 18:05:48',1,'Evergreen Silk Saree','Evergreen Silk Saree'),
+('CCVPUOYFNM','CCFR828QMM',31,31,11,0,299,240,1,1,0,1,'2026-04-01 11:27:42','2026-04-01 11:31:34',1,' A breathable, lightweight blend of cotton and synthetic fibers, balancing durability with comfort.','Men Printed Cotton Blend Straight Kurta'),
+('CCW6Z96UMM','CCFR828QMM',19,2,2,1,75,65,1,1,0,1,'2026-03-17 05:29:09','2026-03-26 18:05:48',1,'Women lnnerwear','Women lnnerwear'),
+('CCW9KF90NM','CCFR828QMM',9,27,3,1,1399,1055,1,1,0,1,'2026-03-21 11:44:06','2026-03-26 18:05:48',1,'These sarees feature lightweight, flowy fabric that\'s perfect for warm weather .',' JENIFER PURE SOFT JIMMY CHOO SILK SAREE'),
+('CCWC52GXMM','CCFR828QMM',9,5,3,1,425,375,1,1,0,1,'2026-03-19 12:26:19','2026-03-26 18:05:48',1,'Jamdani Saree','Jamdani Saree'),
+('CCWCD6WYMM','CCFR828QMM',9,19,3,1,799,690,1,1,0,1,'2026-03-20 12:45:16','2026-03-26 18:05:48',1,'Swarnachuri Saree','Swarnachuri Saree'),
+('CCWK8LXYMM','CCFR828QMM',55,24,4,1,299,150,1,1,0,1,'2026-03-20 13:24:49','2026-03-26 18:05:48',1,'Exotic Ladies Handbag','Exotic Ladies Handbag'),
+('CCWKLTWYMM','CCFR828QMM',9,12,3,1,1150,900,1,1,0,1,'2026-03-20 13:03:20','2026-03-26 18:05:48',1,'Maliska Sartin Silk Saree','Maliska Sartin Silk Saree'),
+('CCX1BNGXMM','CCFR828QMM',9,9,3,1,2495,2290,1,1,0,1,'2026-03-19 12:42:46','2026-03-26 18:05:48',1,'Katan Silk is the purest form of silk with a plain woven fabric .','Katan Silk Banarasi Saree'),
+('CCX3MG5UMM','CCFR828QMM',19,2,2,1,85,75,1,1,0,1,'2026-03-17 05:06:20','2026-03-26 18:05:48',1,'Woman Innerwear','Woman Innerwear'),
+('CCXRQ6IXMM','CCFR828QMM',9,11,3,1,1430,1140,1,1,0,1,'2026-03-19 13:25:53','2026-03-26 18:05:48',1,'Open border silk saree features a distinct, often contrasting border woven separately and attached, resulting in a luxurious, lightweight, and modern traditional look with Blouse Piece .','Open Border Silk Saree'),
+('CCXU6EIXMM','CCFR828QMM',9,9,3,1,2265,2100,1,1,0,1,'2026-03-19 13:31:40','2026-03-26 18:05:48',1,'Katan Silk Banarasi Saree With Boluse Piece .','Katan Silk Banarasi Saree '),
+('CCYTRGVYMM','CCFR828QMM',9,6,3,1,1740,1570,1,1,0,1,'2026-03-20 12:25:22','2026-03-26 18:05:48',1,'Super Silky Saree','Silk Saree'),
+('CCZATVLFNM','CCFR828QMM',46,30,9,0,439,320,1,1,0,1,'2026-04-01 05:29:12','2026-04-01 05:36:53',1,'Comfortable, high-quality casual wear, typically made from 40s count super combed cotton for superior softness and durability.','Mercerised Printed Bermuda With Zip'),
+('CCZAXTHXMM','CCFR828QMM',9,16,3,1,1050,850,1,1,0,1,'2026-03-19 13:15:54','2026-03-26 18:05:48',1,'Pure Fandy Silk Saree With Blouse','Pure Fandy Silk Saree'),
+('CCZCQEYYMM','CCFR828QMM',9,20,3,1,425,380,1,1,0,1,'2026-03-20 13:47:45','2026-03-26 18:05:48',1,'Pure Cotton Handloom Saree','Pure Cotton Handloom Saree'),
+('CCZXY6YYMM','CCFR828QMM',59,25,4,1,199,130,1,1,0,1,'2026-03-20 13:41:43','2026-03-26 18:05:48',1,'leather handbags for women',' Hand Purse');
 /*!40000 ALTER TABLE `item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -457,6 +511,7 @@ CREATE TABLE `item_image` (
   `item_id` varchar(10) NOT NULL,
   `item_image_url` varchar(255) NOT NULL,
   `item_image_created_on` timestamp NOT NULL DEFAULT current_timestamp(),
+  `color` varchar(30) NOT NULL DEFAULT '',
   PRIMARY KEY (`item_id`,`item_image_url`),
   CONSTRAINT `image_item_id_key` FOREIGN KEY (`item_id`) REFERENCES `item` (`item_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -469,353 +524,196 @@ CREATE TABLE `item_image` (
 LOCK TABLES `item_image` WRITE;
 /*!40000 ALTER TABLE `item_image` DISABLE KEYS */;
 INSERT INTO `item_image` VALUES
-('CC0V1D70NM','https://vendor.e-craft.in/uploads/CC0V1D70NM_69be77092e3eb_lg.jpeg','2026-03-21 10:46:33'),
-('CC0V1D70NM','https://vendor.e-craft.in/uploads/CC0V1D70NM_69be770f7a1aa_lg.jpeg','2026-03-21 10:46:39'),
-('CC0V1D70NM','https://vendor.e-craft.in/uploads/CC0V1D70NM_69be770f82cd8_lg.jpeg','2026-03-21 10:46:39'),
-('CC1CMRFXMM','https://vendor.e-craft.in/uploads/CC1CMRFXMM_69bbe999892fd_lg.jpeg','2026-03-19 12:18:33'),
-('CC1CMRFXMM','https://vendor.e-craft.in/uploads/CC1CMRFXMM_69bbe9a047953_lg.jpeg','2026-03-19 12:18:40'),
-('CC1CMRFXMM','https://vendor.e-craft.in/uploads/CC1CMRFXMM_69bbe9a62e4c6_lg.jpeg','2026-03-19 12:18:46'),
-('CC1KXO3WMM','https://vendor.e-craft.in/uploads/CC1KXO3WMM_69baae4d45904_lg.jpeg','2026-03-18 13:53:17'),
-('CC1KXO3WMM','https://vendor.e-craft.in/uploads/CC1KXO3WMM_69baae5e7e748_lg.jpeg','2026-03-18 13:53:34'),
-('CC1SBQJXMM','https://vendor.e-craft.in/uploads/CC1SBQJXMM_69bc0391e1b02_lg.jpeg','2026-03-19 14:09:21'),
-('CC1W3AHXMM','https://vendor.e-craft.in/uploads/CC1W3AHXMM_69bbf39360849_lg.jpeg','2026-03-19 13:01:07'),
-('CC1W3AHXMM','https://vendor.e-craft.in/uploads/CC1W3AHXMM_69bbf39b6ff68_lg.jpeg','2026-03-19 13:01:15'),
-('CC1W3AHXMM','https://vendor.e-craft.in/uploads/CC1W3AHXMM_69bbf3aad87c6_lg.jpeg','2026-03-19 13:01:30'),
-('CC2FKUVYMM','https://vendor.e-craft.in/uploads/CC2FKUVYMM_69bd3f52851d7_lg.jpeg','2026-03-20 12:36:34'),
-('CC2FKUVYMM','https://vendor.e-craft.in/uploads/CC2FKUVYMM_69bd3f72b792e_lg.jpeg','2026-03-20 12:37:06'),
-('CC2FKUVYMM','https://vendor.e-craft.in/uploads/CC2FKUVYMM_69bd3f7a1d2bb_lg.jpeg','2026-03-20 12:37:14'),
-('CC3FB1CXMM','https://vendor.e-craft.in/uploads/CC3FB1CXMM_69bbd1663b1ab_lg.jpeg','2026-03-19 10:35:18'),
-('CC3FB1CXMM','https://vendor.e-craft.in/uploads/CC3FB1CXMM_69bbd16c8990e_lg.jpeg','2026-03-19 10:35:24'),
-('CC3FB1CXMM','https://vendor.e-craft.in/uploads/CC3FB1CXMM_69bbd17303572_lg.jpeg','2026-03-19 10:35:31'),
-('CC3KP090NM','https://vendor.e-craft.in/uploads/CC3KP090NM_69be81e52c3ee_lg.jpeg','2026-03-21 11:32:53'),
-('CC3KP090NM','https://vendor.e-craft.in/uploads/CC3KP090NM_69be81ea600b6_lg.jpeg','2026-03-21 11:32:58'),
-('CC3ODJ80NM','https://vendor.e-craft.in/uploads/CC3ODJ80NM_69be7ed155923_lg.jpeg','2026-03-21 11:19:45'),
-('CC3ODJ80NM','https://vendor.e-craft.in/uploads/CC3ODJ80NM_69be7ed881b0c_lg.jpeg','2026-03-21 11:19:52'),
-('CC3ODJ80NM','https://vendor.e-craft.in/uploads/CC3ODJ80NM_69be7ed88deab_lg.jpeg','2026-03-21 11:19:52'),
-('CC6B0BYYMM','https://vendor.e-craft.in/uploads/CC6B0BYYMM_69bd4f60b554e_lg.jpeg','2026-03-20 13:45:04'),
-('CC6B0BYYMM','https://vendor.e-craft.in/uploads/CC6B0BYYMM_69bd4f60ba2c7_lg.jpeg','2026-03-20 13:45:04'),
-('CC741JIXMM','https://vendor.e-craft.in/uploads/CC741JIXMM_69bbfc031fe12_lg.jpeg','2026-03-19 13:37:07'),
-('CC741JIXMM','https://vendor.e-craft.in/uploads/CC741JIXMM_69bbfc09e9f9e_lg.jpeg','2026-03-19 13:37:13'),
-('CC85NDWYMM','https://vendor.e-craft.in/uploads/CC85NDWYMM_69bd42ca068f8_lg.jpeg','2026-03-20 12:51:22'),
-('CC85NDWYMM','https://vendor.e-craft.in/uploads/CC85NDWYMM_69bd42ca0ec52_lg.jpeg','2026-03-20 12:51:22'),
-('CC85NDWYMM','https://vendor.e-craft.in/uploads/CC85NDWYMM_69bd42ca18380_lg.jpeg','2026-03-20 12:51:22'),
-('CC9R8BA0NM','https://vendor.e-craft.in/uploads/CC9R8BA0NM_69be8a55b4d89_lg.jpeg','2026-03-21 12:08:53'),
-('CC9R8BA0NM','https://vendor.e-craft.in/uploads/CC9R8BA0NM_69be8a5ad628a_lg.jpeg','2026-03-21 12:08:58'),
-('CCA6A0IXMM','https://vendor.e-craft.in/uploads/CCA6A0IXMM_69bbf8a21f2cd_lg.jpeg','2026-03-19 13:22:42'),
-('CCA6A0IXMM','https://vendor.e-craft.in/uploads/CCA6A0IXMM_69bbf8b0c19b0_lg.jpeg','2026-03-19 13:22:56'),
-('CCA6A0IXMM','https://vendor.e-craft.in/uploads/CCA6A0IXMM_69bbf8b7ea391_lg.jpeg','2026-03-19 13:23:03'),
-('CCADDP80NM','https://vendor.e-craft.in/uploads/CCADDP80NM_69be800da55f3_lg.jpeg','2026-03-21 11:25:01'),
-('CCADDP80NM','https://vendor.e-craft.in/uploads/CCADDP80NM_69be80165d36d_lg.jpeg','2026-03-21 11:25:10'),
-('CCADDP80NM','https://vendor.e-craft.in/uploads/CCADDP80NM_69be801c31a89_lg.jpeg','2026-03-21 11:25:16'),
-('CCAJAIHXMM','https://vendor.e-craft.in/uploads/CCAJAIHXMM_69bbf51dbb9e7_lg.jpeg','2026-03-19 13:07:41'),
-('CCAJAIHXMM','https://vendor.e-craft.in/uploads/CCAJAIHXMM_69bbf523626b0_lg.jpeg','2026-03-19 13:07:47'),
-('CCAJAIHXMM','https://vendor.e-craft.in/uploads/CCAJAIHXMM_69bbf52905956_lg.jpeg','2026-03-19 13:07:53'),
-('CCAMXSJXMM','https://vendor.e-craft.in/uploads/CCAMXSJXMM_69bc0403a1a7d_lg.jpeg','2026-03-19 14:11:15'),
-('CCB0R5A0NM','https://vendor.e-craft.in/uploads/CCB0R5A0NM_69be896a95cd3_lg.jpeg','2026-03-21 12:04:58'),
-('CCB2CYVYMM','https://vendor.e-craft.in/uploads/CCB2CYVYMM_69bd40078c20d_lg.jpeg','2026-03-20 12:39:35'),
-('CCB2CYVYMM','https://vendor.e-craft.in/uploads/CCB2CYVYMM_69bd400796076_lg.jpeg','2026-03-20 12:39:35'),
-('CCB2CYVYMM','https://vendor.e-craft.in/uploads/CCB2CYVYMM_69bd40079d428_lg.jpeg','2026-03-20 12:39:35'),
-('CCBJD93WMM','https://vendor.e-craft.in/uploads/CCBJD93WMM_69baab7644af0_lg.jpeg','2026-03-18 13:41:10'),
-('CCBJD93WMM','https://vendor.e-craft.in/uploads/CCBJD93WMM_69baab7d0d096_lg.jpeg','2026-03-18 13:41:17'),
-('CCBJD93WMM','https://vendor.e-craft.in/uploads/CCBJD93WMM_69baab9fb8be1_lg.jpeg','2026-03-18 13:41:51'),
-('CCBOXCA0NM','https://vendor.e-craft.in/uploads/CCBOXCA0NM_69be8ae435a25_lg.jpeg','2026-03-21 12:11:16'),
-('CCBOXCA0NM','https://vendor.e-craft.in/uploads/CCBOXCA0NM_69be8aeded9e3_lg.jpeg','2026-03-21 12:11:26'),
-('CCCZK0XYMM','https://vendor.e-craft.in/uploads/CCCZK0XYMM_69bd46f0e137d_lg.jpeg','2026-03-20 13:09:04'),
-('CCCZK0XYMM','https://vendor.e-craft.in/uploads/CCCZK0XYMM_69bd46fbf2ba0_lg.jpeg','2026-03-20 13:09:16'),
-('CCCZK0XYMM','https://vendor.e-craft.in/uploads/CCCZK0XYMM_69bd46fc06acb_lg.jpeg','2026-03-20 13:09:16'),
-('CCD1E4XYMM','https://vendor.e-craft.in/uploads/CCD1E4XYMM_69bd47b53a49d_lg.jpeg','2026-03-20 13:12:21'),
-('CCD1E4XYMM','https://vendor.e-craft.in/uploads/CCD1E4XYMM_69bd47b53fcb2_lg.jpeg','2026-03-20 13:12:21'),
-('CCD1E4XYMM','https://vendor.e-craft.in/uploads/CCD1E4XYMM_69bd47b546250_lg.jpeg','2026-03-20 13:12:21'),
-('CCE2KDVYMM','https://vendor.e-craft.in/uploads/CCE2KDVYMM_69bd3c2f50db4_lg.jpeg','2026-03-20 12:23:11'),
-('CCE2KDVYMM','https://vendor.e-craft.in/uploads/CCE2KDVYMM_69bd3c2f56f84_lg.jpeg','2026-03-20 12:23:11'),
-('CCE2KDVYMM','https://vendor.e-craft.in/uploads/CCE2KDVYMM_69bd3c2f5c609_lg.jpeg','2026-03-20 12:23:11'),
-('CCEHXCGXMM','https://vendor.e-craft.in/uploads/CCEHXCGXMM_69bbed978ceed_lg.jpeg','2026-03-19 12:35:35'),
-('CCEHXCGXMM','https://vendor.e-craft.in/uploads/CCEHXCGXMM_69bbed9f1833c_lg.jpeg','2026-03-19 12:35:43'),
-('CCEHXCGXMM','https://vendor.e-craft.in/uploads/CCEHXCGXMM_69bbeda52e229_lg.jpeg','2026-03-19 12:35:49'),
-('CCF3Y0YYMM','https://vendor.e-craft.in/uploads/CCF3Y0YYMM_69bd4da8d13da_lg.jpeg','2026-03-20 13:37:44'),
-('CCF3Y0YYMM','https://vendor.e-craft.in/uploads/CCF3Y0YYMM_69bd4da8d8090_lg.jpeg','2026-03-20 13:37:44'),
-('CCFBGOVYMM','https://vendor.e-craft.in/uploads/CCFBGOVYMM_69bd3e5ad3386_lg.jpeg','2026-03-20 12:32:26'),
-('CCFBGOVYMM','https://vendor.e-craft.in/uploads/CCFBGOVYMM_69bd3e6608a3b_lg.jpeg','2026-03-20 12:32:38'),
-('CCFBGOVYMM','https://vendor.e-craft.in/uploads/CCFBGOVYMM_69bd3e7673f60_lg.jpeg','2026-03-20 12:32:54'),
-('CCFLOAIXMM','https://vendor.e-craft.in/uploads/CCFLOAIXMM_69bbfa3541b14_lg.jpeg','2026-03-19 13:29:25'),
-('CCFLOAIXMM','https://vendor.e-craft.in/uploads/CCFLOAIXMM_69bbfa3be878d_lg.jpeg','2026-03-19 13:29:31'),
-('CCFLOAIXMM','https://vendor.e-craft.in/uploads/CCFLOAIXMM_69bbfa46dd8b1_lg.jpeg','2026-03-19 13:29:42'),
-('CCFOJSUYMM','https://vendor.e-craft.in/uploads/CCFOJSUYMM_69bd3902cbadb_lg.jpeg','2026-03-20 12:09:38'),
-('CCFOJSUYMM','https://vendor.e-craft.in/uploads/CCFOJSUYMM_69bd3902d6901_lg.jpeg','2026-03-20 12:09:38'),
-('CCFOJSUYMM','https://vendor.e-craft.in/uploads/CCFOJSUYMM_69bd3902dd7b6_lg.jpeg','2026-03-20 12:09:38'),
-('CCH30O2WMM','https://vendor.e-craft.in/uploads/CCH30O2WMM_69baa78877e7e_lg.jpeg','2026-03-18 13:24:24'),
-('CCH30O2WMM','https://vendor.e-craft.in/uploads/CCH30O2WMM_69baa78e540b4_lg.jpeg','2026-03-18 13:24:30'),
-('CCHA8W90NM','https://vendor.e-craft.in/uploads/CCHA8W90NM_69be879fad159_lg.jpeg','2026-03-21 11:57:19'),
-('CCIVGV80NM','https://vendor.e-craft.in/uploads/CCIVGV80NM_69be80fc18517_lg.jpeg','2026-03-21 11:29:00'),
-('CCIVGV80NM','https://vendor.e-craft.in/uploads/CCIVGV80NM_69be81031aaf8_lg.jpeg','2026-03-21 11:29:07'),
-('CCIVGV80NM','https://vendor.e-craft.in/uploads/CCIVGV80NM_69be810324aa9_lg.jpeg','2026-03-21 11:29:07'),
-('CCJ91KFXMM','https://vendor.e-craft.in/uploads/CCJ91KFXMM_69bbe854d1de8_lg.jpeg','2026-03-19 12:13:08'),
-('CCJ91KFXMM','https://vendor.e-craft.in/uploads/CCJ91KFXMM_69bbe870962bb_lg.jpeg','2026-03-19 12:13:36'),
-('CCJ91KFXMM','https://vendor.e-craft.in/uploads/CCJ91KFXMM_69bbe877b9ee6_lg.jpeg','2026-03-19 12:13:43'),
-('CCJSS1VYMM','https://vendor.e-craft.in/uploads/CCJSS1VYMM_69bd3a6b02f7e_lg.jpeg','2026-03-20 12:15:39'),
-('CCJSS1VYMM','https://vendor.e-craft.in/uploads/CCJSS1VYMM_69bd3a6b18bd8_lg.jpeg','2026-03-20 12:15:39'),
-('CCJSS1VYMM','https://vendor.e-craft.in/uploads/CCJSS1VYMM_69bd3a6b25ab2_lg.jpeg','2026-03-20 12:15:39'),
-('CCL0AP60NM','https://vendor.e-craft.in/uploads/CCL0AP60NM_69be73902b025_lg.jpeg','2026-03-21 10:31:44'),
-('CCL0AP60NM','https://vendor.e-craft.in/uploads/CCL0AP60NM_69be73aac10ff_lg.jpeg','2026-03-21 10:32:10'),
-('CCL0AP60NM','https://vendor.e-craft.in/uploads/CCL0AP60NM_69be73c048ffc_lg.jpeg','2026-03-21 10:32:32'),
-('CCM4D5GXMM','https://vendor.e-craft.in/uploads/CCM4D5GXMM_69bbec4c8651c_lg.jpeg','2026-03-19 12:30:04'),
-('CCM4D5GXMM','https://vendor.e-craft.in/uploads/CCM4D5GXMM_69bbec53ae23b_lg.jpeg','2026-03-19 12:30:11'),
-('CCMMRV3WMM','https://vendor.e-craft.in/uploads/CCMMRV3WMM_69baaf7a8cee1_lg.jpeg','2026-03-18 13:58:18'),
-('CCMMRV3WMM','https://vendor.e-craft.in/uploads/CCMMRV3WMM_69baaf8144737_lg.jpeg','2026-03-18 13:58:25'),
-('CCMMRV3WMM','https://vendor.e-craft.in/uploads/CCMMRV3WMM_69baaf86a9f69_lg.jpeg','2026-03-18 13:58:30'),
-('CCNKH0A0NM','https://vendor.e-craft.in/uploads/CCNKH0A0NM_69be88be8d2dc_lg.jpeg','2026-03-21 12:02:06'),
-('CCNKH0A0NM','https://vendor.e-craft.in/uploads/CCNKH0A0NM_69be88c711a9d_lg.jpeg','2026-03-21 12:02:15'),
-('CCNKH0A0NM','https://vendor.e-craft.in/uploads/CCNKH0A0NM_69be88cc3b006_lg.jpeg','2026-03-21 12:02:20'),
-('CCNPTZGXMM','https://vendor.e-craft.in/uploads/CCNPTZGXMM_69bbf1fa0eea8_lg.jpeg','2026-03-19 12:54:18'),
-('CCNPTZGXMM','https://vendor.e-craft.in/uploads/CCNPTZGXMM_69bbf212be1af_lg.jpeg','2026-03-19 12:54:42'),
-('CCQIF2HYMM','https://vendor.e-craft.in/uploads/CCQIF2HYMM_69bcde4bb8a3f_lg.jpeg','2026-03-20 05:42:35'),
-('CCQIF2HYMM','https://vendor.e-craft.in/uploads/CCQIF2HYMM_69bcde4bc4bae_lg.jpeg','2026-03-20 05:42:35'),
-('CCQIF2HYMM','https://vendor.e-craft.in/uploads/CCQIF2HYMM_69bcde4bd6eb4_lg.jpeg','2026-03-20 05:42:35'),
-('CCQJRZ60NM','https://vendor.e-craft.in/uploads/CCQJRZ60NM_69be75fb3672c_lg.jpeg','2026-03-21 10:42:03'),
-('CCQJRZ60NM','https://vendor.e-craft.in/uploads/CCQJRZ60NM_69be760922d29_lg.jpeg','2026-03-21 10:42:17'),
-('CCQJRZ60NM','https://vendor.e-craft.in/uploads/CCQJRZ60NM_69be7624db82e_lg.jpeg','2026-03-21 10:42:44'),
-('CCQTVJCTMM','https://vendor.e-craft.in/uploads/CCQTVJCTMM_69b8262a6e956_lg.jpg','2026-03-16 15:47:54'),
-('CCQTVJCTMM','https://vendor.e-craft.in/uploads/CCQTVJCTMM_69b8265d2535d_lg.jpg','2026-03-16 15:48:45'),
-('CCQW224WMM','https://vendor.e-craft.in/uploads/CCQW224WMM_69bab0b60379e_lg.jpeg','2026-03-18 14:03:34'),
-('CCQW224WMM','https://vendor.e-craft.in/uploads/CCQW224WMM_69bab0bbef855_lg.jpeg','2026-03-18 14:03:40'),
-('CCQW224WMM','https://vendor.e-craft.in/uploads/CCQW224WMM_69bab0c29ccbc_lg.jpeg','2026-03-18 14:03:46'),
-('CCQWR03WMM','https://vendor.e-craft.in/uploads/CCQWR03WMM_69baa9d32f197_lg.jpeg','2026-03-18 13:34:11'),
-('CCQWR03WMM','https://vendor.e-craft.in/uploads/CCQWR03WMM_69baa9d90c95b_lg.jpeg','2026-03-18 13:34:17'),
-('CCRL8280NM','https://vendor.e-craft.in/uploads/CCRL8280NM_69be7b902ded0_lg.jpeg','2026-03-21 11:05:52'),
-('CCRTS91WMM','https://vendor.e-craft.in/uploads/CCRTS91WMM_69baa46e3d30f_lg.jpeg','2026-03-18 13:11:10'),
-('CCRTS91WMM','https://vendor.e-craft.in/uploads/CCRTS91WMM_69baa473297be_lg.jpeg','2026-03-18 13:11:15'),
-('CCRTS91WMM','https://vendor.e-craft.in/uploads/CCRTS91WMM_69baa47a75919_lg.jpeg','2026-03-18 13:11:22'),
-('CCSBS8GXMM','https://vendor.e-craft.in/uploads/CCSBS8GXMM_69bbecc83712f_lg.jpeg','2026-03-19 12:32:08'),
-('CCSBS8GXMM','https://vendor.e-craft.in/uploads/CCSBS8GXMM_69bbecd7d08eb_lg.jpeg','2026-03-19 12:32:23'),
-('CCT8IM80NM','https://vendor.e-craft.in/uploads/CCT8IM80NM_69be7f5f48169_lg.jpeg','2026-03-21 11:22:07'),
-('CCT8IM80NM','https://vendor.e-craft.in/uploads/CCT8IM80NM_69be7f64d7e05_lg.jpeg','2026-03-21 11:22:12'),
-('CCT8SE2WMM','https://vendor.e-craft.in/uploads/CCT8SE2WMM_69baa61ce1006_lg.jpeg','2026-03-18 13:18:20'),
-('CCT8SE2WMM','https://vendor.e-craft.in/uploads/CCT8SE2WMM_69baa626e77a1_lg.jpeg','2026-03-18 13:18:30'),
-('CCTCGC80NM','https://vendor.e-craft.in/uploads/CCTCGC80NM_69be7d6ce7267_lg.jpeg','2026-03-21 11:13:48'),
-('CCV1LE3WMM','https://vendor.e-craft.in/uploads/CCV1LE3WMM_69baac67df704_lg.jpeg','2026-03-18 13:45:12'),
-('CCV1LE3WMM','https://vendor.e-craft.in/uploads/CCV1LE3WMM_69baac6e643af_lg.jpeg','2026-03-18 13:45:18'),
-('CCV1LE3WMM','https://vendor.e-craft.in/uploads/CCV1LE3WMM_69baac73d300b_lg.jpeg','2026-03-18 13:45:23'),
-('CCW6Z96UMM','https://vendor.e-craft.in/uploads/CCW6Z96UMM_69b8e833b4b57_lg.jpeg','2026-03-17 05:35:47'),
-('CCW6Z96UMM','https://vendor.e-craft.in/uploads/CCW6Z96UMM_69b8e833ba336_lg.jpeg','2026-03-17 05:35:47'),
-('CCW9KF90NM','https://vendor.e-craft.in/uploads/CCW9KF90NM_69be849d7e436_lg.jpeg','2026-03-21 11:44:29'),
-('CCW9KF90NM','https://vendor.e-craft.in/uploads/CCW9KF90NM_69be84a67f14a_lg.jpeg','2026-03-21 11:44:38'),
-('CCWC52GXMM','https://vendor.e-craft.in/uploads/CCWC52GXMM_69bbeb7b3e855_lg.jpeg','2026-03-19 12:26:35'),
-('CCWC52GXMM','https://vendor.e-craft.in/uploads/CCWC52GXMM_69bbeb85a1985_lg.jpeg','2026-03-19 12:26:45'),
-('CCWC52GXMM','https://vendor.e-craft.in/uploads/CCWC52GXMM_69bbeb8b54a6c_lg.jpeg','2026-03-19 12:26:51'),
-('CCWCD6WYMM','https://vendor.e-craft.in/uploads/CCWCD6WYMM_69bd417e684ac_lg.jpeg','2026-03-20 12:45:50'),
-('CCWCD6WYMM','https://vendor.e-craft.in/uploads/CCWCD6WYMM_69bd417e740ef_lg.jpeg','2026-03-20 12:45:50'),
-('CCWCD6WYMM','https://vendor.e-craft.in/uploads/CCWCD6WYMM_69bd417e7d440_lg.jpeg','2026-03-20 12:45:50'),
-('CCWK8LXYMM','https://vendor.e-craft.in/uploads/CCWK8LXYMM_69bd4ab5a167d_lg.jpeg','2026-03-20 13:25:09'),
-('CCWK8LXYMM','https://vendor.e-craft.in/uploads/CCWK8LXYMM_69bd4ab5a5f01_lg.jpeg','2026-03-20 13:25:09'),
-('CCWKLTWYMM','https://vendor.e-craft.in/uploads/CCWKLTWYMM_69bd45c74a829_lg.jpeg','2026-03-20 13:04:07'),
-('CCWKLTWYMM','https://vendor.e-craft.in/uploads/CCWKLTWYMM_69bd4617d8f27_lg.jpeg','2026-03-20 13:05:27'),
-('CCWKLTWYMM','https://vendor.e-craft.in/uploads/CCWKLTWYMM_69bd4625acc72_lg.jpeg','2026-03-20 13:05:41'),
-('CCX1BNGXMM','https://vendor.e-craft.in/uploads/CCX1BNGXMM_69bbefbec0c01_lg.jpeg','2026-03-19 12:44:46'),
-('CCX1BNGXMM','https://vendor.e-craft.in/uploads/CCX1BNGXMM_69bbefc50c5db_lg.jpeg','2026-03-19 12:44:53'),
-('CCX1BNGXMM','https://vendor.e-craft.in/uploads/CCX1BNGXMM_69bbefcacec9c_lg.jpeg','2026-03-19 12:44:58'),
-('CCX3MG5UMM','https://vendor.e-craft.in/uploads/CCX3MG5UMM_69b8e32e7e23b_lg.jpeg','2026-03-17 05:14:22'),
-('CCX3MG5UMM','https://vendor.e-craft.in/uploads/CCX3MG5UMM_69b8e32e8d35e_lg.jpeg','2026-03-17 05:14:22'),
-('CCXRQ6IXMM','https://vendor.e-craft.in/uploads/CCXRQ6IXMM_69bbf97b1f0bd_lg.jpeg','2026-03-19 13:26:19'),
-('CCXRQ6IXMM','https://vendor.e-craft.in/uploads/CCXRQ6IXMM_69bbf98161d05_lg.jpeg','2026-03-19 13:26:25'),
-('CCXRQ6IXMM','https://vendor.e-craft.in/uploads/CCXRQ6IXMM_69bbf98649090_lg.jpeg','2026-03-19 13:26:30'),
-('CCXU6EIXMM','https://vendor.e-craft.in/uploads/CCXU6EIXMM_69bbfafe2d528_lg.jpeg','2026-03-19 13:32:46'),
-('CCXU6EIXMM','https://vendor.e-craft.in/uploads/CCXU6EIXMM_69bbfb0488132_lg.jpeg','2026-03-19 13:32:52'),
-('CCXU6EIXMM','https://vendor.e-craft.in/uploads/CCXU6EIXMM_69bbfb0ae5a10_lg.jpeg','2026-03-19 13:32:58'),
-('CCYTRGVYMM','https://vendor.e-craft.in/uploads/CCYTRGVYMM_69bd3d1a5b846_lg.jpeg','2026-03-20 12:27:06'),
-('CCYTRGVYMM','https://vendor.e-craft.in/uploads/CCYTRGVYMM_69bd3d29aafdd_lg.jpeg','2026-03-20 12:27:21'),
-('CCYTRGVYMM','https://vendor.e-craft.in/uploads/CCYTRGVYMM_69bd3d37418ea_lg.jpeg','2026-03-20 12:27:35'),
-('CCZAXTHXMM','https://vendor.e-craft.in/uploads/CCZAXTHXMM_69bbf722a30e4_lg.jpeg','2026-03-19 13:16:18'),
-('CCZAXTHXMM','https://vendor.e-craft.in/uploads/CCZAXTHXMM_69bbf72999e4c_lg.jpeg','2026-03-19 13:16:25'),
-('CCZCQEYYMM','https://vendor.e-craft.in/uploads/CCZCQEYYMM_69bd5016bee93_lg.jpeg','2026-03-20 13:48:06'),
-('CCZCQEYYMM','https://vendor.e-craft.in/uploads/CCZCQEYYMM_69bd5016c5094_lg.jpeg','2026-03-20 13:48:06'),
-('CCZCQEYYMM','https://vendor.e-craft.in/uploads/CCZCQEYYMM_69bd5016cb1b9_lg.jpeg','2026-03-20 13:48:06'),
-('CCZXY6YYMM','https://vendor.e-craft.in/uploads/CCZXY6YYMM_69bd4eb843f55_lg.jpeg','2026-03-20 13:42:16'),
-('CCZXY6YYMM','https://vendor.e-craft.in/uploads/CCZXY6YYMM_69bd4ebe583f3_lg.jpeg','2026-03-20 13:42:22');
+('CC0V1D70NM','https://vendor.e-craft.in/uploads/CC0V1D70NM_69be77092e3eb_lg.jpeg','2026-03-21 10:46:33',''),
+('CC0V1D70NM','https://vendor.e-craft.in/uploads/CC0V1D70NM_69be770f7a1aa_lg.jpeg','2026-03-21 10:46:39',''),
+('CC0V1D70NM','https://vendor.e-craft.in/uploads/CC0V1D70NM_69be770f82cd8_lg.jpeg','2026-03-21 10:46:39',''),
+('CC1CMRFXMM','https://vendor.e-craft.in/uploads/CC1CMRFXMM_69bbe999892fd_lg.jpeg','2026-03-19 12:18:33',''),
+('CC1CMRFXMM','https://vendor.e-craft.in/uploads/CC1CMRFXMM_69bbe9a047953_lg.jpeg','2026-03-19 12:18:40',''),
+('CC1CMRFXMM','https://vendor.e-craft.in/uploads/CC1CMRFXMM_69bbe9a62e4c6_lg.jpeg','2026-03-19 12:18:46',''),
+('CC1KXO3WMM','https://vendor.e-craft.in/uploads/CC1KXO3WMM_69baae4d45904_lg.jpeg','2026-03-18 13:53:17',''),
+('CC1KXO3WMM','https://vendor.e-craft.in/uploads/CC1KXO3WMM_69baae5e7e748_lg.jpeg','2026-03-18 13:53:34',''),
+('CC1SBQJXMM','https://vendor.e-craft.in/uploads/CC1SBQJXMM_69bc0391e1b02_lg.jpeg','2026-03-19 14:09:21',''),
+('CC1W3AHXMM','https://vendor.e-craft.in/uploads/CC1W3AHXMM_69bbf39360849_lg.jpeg','2026-03-19 13:01:07',''),
+('CC1W3AHXMM','https://vendor.e-craft.in/uploads/CC1W3AHXMM_69bbf39b6ff68_lg.jpeg','2026-03-19 13:01:15',''),
+('CC1W3AHXMM','https://vendor.e-craft.in/uploads/CC1W3AHXMM_69bbf3aad87c6_lg.jpeg','2026-03-19 13:01:30',''),
+('CC2FKUVYMM','https://vendor.e-craft.in/uploads/CC2FKUVYMM_69bd3f52851d7_lg.jpeg','2026-03-20 12:36:34',''),
+('CC2FKUVYMM','https://vendor.e-craft.in/uploads/CC2FKUVYMM_69bd3f72b792e_lg.jpeg','2026-03-20 12:37:06',''),
+('CC2FKUVYMM','https://vendor.e-craft.in/uploads/CC2FKUVYMM_69bd3f7a1d2bb_lg.jpeg','2026-03-20 12:37:14',''),
+('CC3FB1CXMM','https://vendor.e-craft.in/uploads/CC3FB1CXMM_69bbd1663b1ab_lg.jpeg','2026-03-19 10:35:18',''),
+('CC3FB1CXMM','https://vendor.e-craft.in/uploads/CC3FB1CXMM_69bbd16c8990e_lg.jpeg','2026-03-19 10:35:24',''),
+('CC3FB1CXMM','https://vendor.e-craft.in/uploads/CC3FB1CXMM_69bbd17303572_lg.jpeg','2026-03-19 10:35:31',''),
+('CC3KP090NM','https://vendor.e-craft.in/uploads/CC3KP090NM_69be81e52c3ee_lg.jpeg','2026-03-21 11:32:53',''),
+('CC3KP090NM','https://vendor.e-craft.in/uploads/CC3KP090NM_69be81ea600b6_lg.jpeg','2026-03-21 11:32:58',''),
+('CC3ODJ80NM','https://vendor.e-craft.in/uploads/CC3ODJ80NM_69be7ed155923_lg.jpeg','2026-03-21 11:19:45',''),
+('CC3ODJ80NM','https://vendor.e-craft.in/uploads/CC3ODJ80NM_69be7ed881b0c_lg.jpeg','2026-03-21 11:19:52',''),
+('CC3ODJ80NM','https://vendor.e-craft.in/uploads/CC3ODJ80NM_69be7ed88deab_lg.jpeg','2026-03-21 11:19:52',''),
+('CC3XW6ZFNM','https://vendor.e-craft.in/uploads/CC3XW6ZFNM_69cd04ee75bd1_lg.jpeg','2026-04-01 11:43:42','Sky Blue'),
+('CC4D30PFNM','https://vendor.e-craft.in/uploads/CC4D30PFNM_69ccc29556662_lg.jpeg','2026-04-01 07:00:37','Navy Blue'),
+('CC6B0BYYMM','https://vendor.e-craft.in/uploads/CC6B0BYYMM_69bd4f60b554e_lg.jpeg','2026-03-20 13:45:04',''),
+('CC6B0BYYMM','https://vendor.e-craft.in/uploads/CC6B0BYYMM_69bd4f60ba2c7_lg.jpeg','2026-03-20 13:45:04',''),
+('CC6CPLNFNM','https://vendor.e-craft.in/uploads/CC6CPLNFNM_69ccb8822c3bc_lg.jpeg','2026-04-01 06:17:38',''),
+('CC6YQOOFNM','https://vendor.e-craft.in/uploads/CC6YQOOFNM_69ccbfdd6f67f_lg.jpeg','2026-04-01 06:49:01',''),
+('CC741JIXMM','https://vendor.e-craft.in/uploads/CC741JIXMM_69bbfc031fe12_lg.jpeg','2026-03-19 13:37:07',''),
+('CC741JIXMM','https://vendor.e-craft.in/uploads/CC741JIXMM_69bbfc09e9f9e_lg.jpeg','2026-03-19 13:37:13',''),
+('CC85NDWYMM','https://vendor.e-craft.in/uploads/CC85NDWYMM_69bd42ca068f8_lg.jpeg','2026-03-20 12:51:22',''),
+('CC85NDWYMM','https://vendor.e-craft.in/uploads/CC85NDWYMM_69bd42ca0ec52_lg.jpeg','2026-03-20 12:51:22',''),
+('CC85NDWYMM','https://vendor.e-craft.in/uploads/CC85NDWYMM_69bd42ca18380_lg.jpeg','2026-03-20 12:51:22',''),
+('CC9R8BA0NM','https://vendor.e-craft.in/uploads/CC9R8BA0NM_69be8a55b4d89_lg.jpeg','2026-03-21 12:08:53',''),
+('CC9R8BA0NM','https://vendor.e-craft.in/uploads/CC9R8BA0NM_69be8a5ad628a_lg.jpeg','2026-03-21 12:08:58',''),
+('CCA6A0IXMM','https://vendor.e-craft.in/uploads/CCA6A0IXMM_69bbf8a21f2cd_lg.jpeg','2026-03-19 13:22:42',''),
+('CCA6A0IXMM','https://vendor.e-craft.in/uploads/CCA6A0IXMM_69bbf8b0c19b0_lg.jpeg','2026-03-19 13:22:56',''),
+('CCA6A0IXMM','https://vendor.e-craft.in/uploads/CCA6A0IXMM_69bbf8b7ea391_lg.jpeg','2026-03-19 13:23:03',''),
+('CCADDP80NM','https://vendor.e-craft.in/uploads/CCADDP80NM_69be800da55f3_lg.jpeg','2026-03-21 11:25:01',''),
+('CCADDP80NM','https://vendor.e-craft.in/uploads/CCADDP80NM_69be80165d36d_lg.jpeg','2026-03-21 11:25:10',''),
+('CCADDP80NM','https://vendor.e-craft.in/uploads/CCADDP80NM_69be801c31a89_lg.jpeg','2026-03-21 11:25:16',''),
+('CCAJAIHXMM','https://vendor.e-craft.in/uploads/CCAJAIHXMM_69bbf51dbb9e7_lg.jpeg','2026-03-19 13:07:41',''),
+('CCAJAIHXMM','https://vendor.e-craft.in/uploads/CCAJAIHXMM_69bbf523626b0_lg.jpeg','2026-03-19 13:07:47',''),
+('CCAJAIHXMM','https://vendor.e-craft.in/uploads/CCAJAIHXMM_69bbf52905956_lg.jpeg','2026-03-19 13:07:53',''),
+('CCAMXSJXMM','https://vendor.e-craft.in/uploads/CCAMXSJXMM_69bc0403a1a7d_lg.jpeg','2026-03-19 14:11:15',''),
+('CCB0R5A0NM','https://vendor.e-craft.in/uploads/CCB0R5A0NM_69be896a95cd3_lg.jpeg','2026-03-21 12:04:58',''),
+('CCB2CYVYMM','https://vendor.e-craft.in/uploads/CCB2CYVYMM_69bd40078c20d_lg.jpeg','2026-03-20 12:39:35',''),
+('CCB2CYVYMM','https://vendor.e-craft.in/uploads/CCB2CYVYMM_69bd400796076_lg.jpeg','2026-03-20 12:39:35',''),
+('CCB2CYVYMM','https://vendor.e-craft.in/uploads/CCB2CYVYMM_69bd40079d428_lg.jpeg','2026-03-20 12:39:35',''),
+('CCBJD93WMM','https://vendor.e-craft.in/uploads/CCBJD93WMM_69baab7644af0_lg.jpeg','2026-03-18 13:41:10',''),
+('CCBJD93WMM','https://vendor.e-craft.in/uploads/CCBJD93WMM_69baab7d0d096_lg.jpeg','2026-03-18 13:41:17',''),
+('CCBJD93WMM','https://vendor.e-craft.in/uploads/CCBJD93WMM_69baab9fb8be1_lg.jpeg','2026-03-18 13:41:51',''),
+('CCBL22NFNM','https://vendor.e-craft.in/uploads/CCBL22NFNM_69ccb4e8ca7f4_lg.jpeg','2026-04-01 06:02:16',''),
+('CCBL22NFNM','https://vendor.e-craft.in/uploads/CCBL22NFNM_69ccb4f5cd0e5_lg.jpeg','2026-04-01 06:02:29',''),
+('CCBOXCA0NM','https://vendor.e-craft.in/uploads/CCBOXCA0NM_69be8ae435a25_lg.jpeg','2026-03-21 12:11:16',''),
+('CCBOXCA0NM','https://vendor.e-craft.in/uploads/CCBOXCA0NM_69be8aeded9e3_lg.jpeg','2026-03-21 12:11:26',''),
+('CCCZK0XYMM','https://vendor.e-craft.in/uploads/CCCZK0XYMM_69bd46f0e137d_lg.jpeg','2026-03-20 13:09:04',''),
+('CCCZK0XYMM','https://vendor.e-craft.in/uploads/CCCZK0XYMM_69bd46fbf2ba0_lg.jpeg','2026-03-20 13:09:16',''),
+('CCCZK0XYMM','https://vendor.e-craft.in/uploads/CCCZK0XYMM_69bd46fc06acb_lg.jpeg','2026-03-20 13:09:16',''),
+('CCD1E4XYMM','https://vendor.e-craft.in/uploads/CCD1E4XYMM_69bd47b53a49d_lg.jpeg','2026-03-20 13:12:21',''),
+('CCD1E4XYMM','https://vendor.e-craft.in/uploads/CCD1E4XYMM_69bd47b53fcb2_lg.jpeg','2026-03-20 13:12:21',''),
+('CCD1E4XYMM','https://vendor.e-craft.in/uploads/CCD1E4XYMM_69bd47b546250_lg.jpeg','2026-03-20 13:12:21',''),
+('CCE2KDVYMM','https://vendor.e-craft.in/uploads/CCE2KDVYMM_69bd3c2f50db4_lg.jpeg','2026-03-20 12:23:11',''),
+('CCE2KDVYMM','https://vendor.e-craft.in/uploads/CCE2KDVYMM_69bd3c2f56f84_lg.jpeg','2026-03-20 12:23:11',''),
+('CCE2KDVYMM','https://vendor.e-craft.in/uploads/CCE2KDVYMM_69bd3c2f5c609_lg.jpeg','2026-03-20 12:23:11',''),
+('CCEHXCGXMM','https://vendor.e-craft.in/uploads/CCEHXCGXMM_69bbed978ceed_lg.jpeg','2026-03-19 12:35:35',''),
+('CCEHXCGXMM','https://vendor.e-craft.in/uploads/CCEHXCGXMM_69bbed9f1833c_lg.jpeg','2026-03-19 12:35:43',''),
+('CCEHXCGXMM','https://vendor.e-craft.in/uploads/CCEHXCGXMM_69bbeda52e229_lg.jpeg','2026-03-19 12:35:49',''),
+('CCEIGALENM','https://vendor.e-craft.in/uploads/CCEIGALENM_69cbbd651393f_lg.jpeg','2026-03-31 12:26:13',''),
+('CCEIGALENM','https://vendor.e-craft.in/uploads/CCEIGALENM_69cbbd7211f68_lg.jpeg','2026-03-31 12:26:26',''),
+('CCF3Y0YYMM','https://vendor.e-craft.in/uploads/CCF3Y0YYMM_69bd4da8d13da_lg.jpeg','2026-03-20 13:37:44',''),
+('CCF3Y0YYMM','https://vendor.e-craft.in/uploads/CCF3Y0YYMM_69bd4da8d8090_lg.jpeg','2026-03-20 13:37:44',''),
+('CCFBGOVYMM','https://vendor.e-craft.in/uploads/CCFBGOVYMM_69bd3e5ad3386_lg.jpeg','2026-03-20 12:32:26',''),
+('CCFBGOVYMM','https://vendor.e-craft.in/uploads/CCFBGOVYMM_69bd3e6608a3b_lg.jpeg','2026-03-20 12:32:38',''),
+('CCFBGOVYMM','https://vendor.e-craft.in/uploads/CCFBGOVYMM_69bd3e7673f60_lg.jpeg','2026-03-20 12:32:54',''),
+('CCFLOAIXMM','https://vendor.e-craft.in/uploads/CCFLOAIXMM_69bbfa3541b14_lg.jpeg','2026-03-19 13:29:25',''),
+('CCFLOAIXMM','https://vendor.e-craft.in/uploads/CCFLOAIXMM_69bbfa3be878d_lg.jpeg','2026-03-19 13:29:31',''),
+('CCFLOAIXMM','https://vendor.e-craft.in/uploads/CCFLOAIXMM_69bbfa46dd8b1_lg.jpeg','2026-03-19 13:29:42',''),
+('CCFOJSUYMM','https://vendor.e-craft.in/uploads/CCFOJSUYMM_69bd3902cbadb_lg.jpeg','2026-03-20 12:09:38',''),
+('CCFOJSUYMM','https://vendor.e-craft.in/uploads/CCFOJSUYMM_69bd3902d6901_lg.jpeg','2026-03-20 12:09:38',''),
+('CCFOJSUYMM','https://vendor.e-craft.in/uploads/CCFOJSUYMM_69bd3902dd7b6_lg.jpeg','2026-03-20 12:09:38',''),
+('CCFW5VNFNM','https://vendor.e-craft.in/uploads/CCFW5VNFNM_69ccbc63f1b0d_lg.jpeg','2026-04-01 06:34:12','Black'),
+('CCFW5VNFNM','https://vendor.e-craft.in/uploads/CCFW5VNFNM_69ccbc79c2228_lg.jpeg','2026-04-01 06:34:33','Dark Brown'),
+('CCFW5VNFNM','https://vendor.e-craft.in/uploads/CCFW5VNFNM_69ccbc8e0a950_lg.jpeg','2026-04-01 06:34:54','Navy Blue'),
+('CCGFJB0GNM','https://vendor.e-craft.in/uploads/CCGFJB0GNM_69cd0cde3907a_lg.jpeg','2026-04-01 12:17:34','Bright Green'),
+('CCH30O2WMM','https://vendor.e-craft.in/uploads/CCH30O2WMM_69baa78877e7e_lg.jpeg','2026-03-18 13:24:24',''),
+('CCH30O2WMM','https://vendor.e-craft.in/uploads/CCH30O2WMM_69baa78e540b4_lg.jpeg','2026-03-18 13:24:30',''),
+('CCHA8W90NM','https://vendor.e-craft.in/uploads/CCHA8W90NM_69be879fad159_lg.jpeg','2026-03-21 11:57:19',''),
+('CCIVGV80NM','https://vendor.e-craft.in/uploads/CCIVGV80NM_69be80fc18517_lg.jpeg','2026-03-21 11:29:00',''),
+('CCIVGV80NM','https://vendor.e-craft.in/uploads/CCIVGV80NM_69be81031aaf8_lg.jpeg','2026-03-21 11:29:07',''),
+('CCIVGV80NM','https://vendor.e-craft.in/uploads/CCIVGV80NM_69be810324aa9_lg.jpeg','2026-03-21 11:29:07',''),
+('CCJ91KFXMM','https://vendor.e-craft.in/uploads/CCJ91KFXMM_69bbe854d1de8_lg.jpeg','2026-03-19 12:13:08',''),
+('CCJ91KFXMM','https://vendor.e-craft.in/uploads/CCJ91KFXMM_69bbe870962bb_lg.jpeg','2026-03-19 12:13:36',''),
+('CCJ91KFXMM','https://vendor.e-craft.in/uploads/CCJ91KFXMM_69bbe877b9ee6_lg.jpeg','2026-03-19 12:13:43',''),
+('CCJSN3LENM','https://vendor.e-craft.in/uploads/CCJSN3LENM_69cce4a628404_lg.jpeg','2026-04-01 09:25:58',''),
+('CCJSN3LENM','https://vendor.e-craft.in/uploads/CCJSN3LENM_69cce81a0b4d4_lg.jpeg','2026-04-01 09:40:42',''),
+('CCJSS1VYMM','https://vendor.e-craft.in/uploads/CCJSS1VYMM_69bd3a6b02f7e_lg.jpeg','2026-03-20 12:15:39',''),
+('CCJSS1VYMM','https://vendor.e-craft.in/uploads/CCJSS1VYMM_69bd3a6b18bd8_lg.jpeg','2026-03-20 12:15:39',''),
+('CCJSS1VYMM','https://vendor.e-craft.in/uploads/CCJSS1VYMM_69bd3a6b25ab2_lg.jpeg','2026-03-20 12:15:39',''),
+('CCL0AP60NM','https://vendor.e-craft.in/uploads/CCL0AP60NM_69be73902b025_lg.jpeg','2026-03-21 10:31:44',''),
+('CCL0AP60NM','https://vendor.e-craft.in/uploads/CCL0AP60NM_69be73aac10ff_lg.jpeg','2026-03-21 10:32:10',''),
+('CCL0AP60NM','https://vendor.e-craft.in/uploads/CCL0AP60NM_69be73c048ffc_lg.jpeg','2026-03-21 10:32:32',''),
+('CCM4D5GXMM','https://vendor.e-craft.in/uploads/CCM4D5GXMM_69bbec4c8651c_lg.jpeg','2026-03-19 12:30:04',''),
+('CCM4D5GXMM','https://vendor.e-craft.in/uploads/CCM4D5GXMM_69bbec53ae23b_lg.jpeg','2026-03-19 12:30:11',''),
+('CCMMRV3WMM','https://vendor.e-craft.in/uploads/CCMMRV3WMM_69baaf7a8cee1_lg.jpeg','2026-03-18 13:58:18',''),
+('CCMMRV3WMM','https://vendor.e-craft.in/uploads/CCMMRV3WMM_69baaf8144737_lg.jpeg','2026-03-18 13:58:25',''),
+('CCMMRV3WMM','https://vendor.e-craft.in/uploads/CCMMRV3WMM_69baaf86a9f69_lg.jpeg','2026-03-18 13:58:30',''),
+('CCNKH0A0NM','https://vendor.e-craft.in/uploads/CCNKH0A0NM_69be88be8d2dc_lg.jpeg','2026-03-21 12:02:06',''),
+('CCNKH0A0NM','https://vendor.e-craft.in/uploads/CCNKH0A0NM_69be88c711a9d_lg.jpeg','2026-03-21 12:02:15',''),
+('CCNKH0A0NM','https://vendor.e-craft.in/uploads/CCNKH0A0NM_69be88cc3b006_lg.jpeg','2026-03-21 12:02:20',''),
+('CCNPTZGXMM','https://vendor.e-craft.in/uploads/CCNPTZGXMM_69bbf1fa0eea8_lg.jpeg','2026-03-19 12:54:18',''),
+('CCNPTZGXMM','https://vendor.e-craft.in/uploads/CCNPTZGXMM_69bbf212be1af_lg.jpeg','2026-03-19 12:54:42',''),
+('CCP2TFKENM','https://vendor.e-craft.in/uploads/CCP2TFKENM_69cbb806c167a_lg.jpeg','2026-03-31 12:03:18','Gray'),
+('CCP2TFKENM','https://vendor.e-craft.in/uploads/CCP2TFKENM_69cbbe74a846d_lg.jpeg','2026-03-31 12:30:44','Red'),
+('CCPPP30GNM','https://vendor.e-craft.in/uploads/CCPPP30GNM_69cd0b203cef3_lg.jpeg','2026-04-01 12:10:08','Red'),
+('CCQIF2HYMM','https://vendor.e-craft.in/uploads/CCQIF2HYMM_69bcde4bb8a3f_lg.jpeg','2026-03-20 05:42:35',''),
+('CCQIF2HYMM','https://vendor.e-craft.in/uploads/CCQIF2HYMM_69bcde4bc4bae_lg.jpeg','2026-03-20 05:42:35',''),
+('CCQIF2HYMM','https://vendor.e-craft.in/uploads/CCQIF2HYMM_69bcde4bd6eb4_lg.jpeg','2026-03-20 05:42:35',''),
+('CCQJRZ60NM','https://vendor.e-craft.in/uploads/CCQJRZ60NM_69be75fb3672c_lg.jpeg','2026-03-21 10:42:03',''),
+('CCQJRZ60NM','https://vendor.e-craft.in/uploads/CCQJRZ60NM_69be760922d29_lg.jpeg','2026-03-21 10:42:17',''),
+('CCQJRZ60NM','https://vendor.e-craft.in/uploads/CCQJRZ60NM_69be7624db82e_lg.jpeg','2026-03-21 10:42:44',''),
+('CCQTVJCTMM','https://vendor.e-craft.in/uploads/CCQTVJCTMM_69b8262a6e956_lg.jpg','2026-03-16 15:47:54',''),
+('CCQTVJCTMM','https://vendor.e-craft.in/uploads/CCQTVJCTMM_69b8265d2535d_lg.jpg','2026-03-16 15:48:45',''),
+('CCQW224WMM','https://vendor.e-craft.in/uploads/CCQW224WMM_69bab0b60379e_lg.jpeg','2026-03-18 14:03:34',''),
+('CCQW224WMM','https://vendor.e-craft.in/uploads/CCQW224WMM_69bab0bbef855_lg.jpeg','2026-03-18 14:03:40',''),
+('CCQW224WMM','https://vendor.e-craft.in/uploads/CCQW224WMM_69bab0c29ccbc_lg.jpeg','2026-03-18 14:03:46',''),
+('CCQWR03WMM','https://vendor.e-craft.in/uploads/CCQWR03WMM_69baa9d32f197_lg.jpeg','2026-03-18 13:34:11',''),
+('CCQWR03WMM','https://vendor.e-craft.in/uploads/CCQWR03WMM_69baa9d90c95b_lg.jpeg','2026-03-18 13:34:17',''),
+('CCRL8280NM','https://vendor.e-craft.in/uploads/CCRL8280NM_69be7b902ded0_lg.jpeg','2026-03-21 11:05:52',''),
+('CCRTS91WMM','https://vendor.e-craft.in/uploads/CCRTS91WMM_69baa46e3d30f_lg.jpeg','2026-03-18 13:11:10',''),
+('CCRTS91WMM','https://vendor.e-craft.in/uploads/CCRTS91WMM_69baa473297be_lg.jpeg','2026-03-18 13:11:15',''),
+('CCRTS91WMM','https://vendor.e-craft.in/uploads/CCRTS91WMM_69baa47a75919_lg.jpeg','2026-03-18 13:11:22',''),
+('CCSBS8GXMM','https://vendor.e-craft.in/uploads/CCSBS8GXMM_69bbecc83712f_lg.jpeg','2026-03-19 12:32:08',''),
+('CCSBS8GXMM','https://vendor.e-craft.in/uploads/CCSBS8GXMM_69bbecd7d08eb_lg.jpeg','2026-03-19 12:32:23',''),
+('CCT8IM80NM','https://vendor.e-craft.in/uploads/CCT8IM80NM_69be7f5f48169_lg.jpeg','2026-03-21 11:22:07',''),
+('CCT8IM80NM','https://vendor.e-craft.in/uploads/CCT8IM80NM_69be7f64d7e05_lg.jpeg','2026-03-21 11:22:12',''),
+('CCT8SE2WMM','https://vendor.e-craft.in/uploads/CCT8SE2WMM_69baa61ce1006_lg.jpeg','2026-03-18 13:18:20',''),
+('CCT8SE2WMM','https://vendor.e-craft.in/uploads/CCT8SE2WMM_69baa626e77a1_lg.jpeg','2026-03-18 13:18:30',''),
+('CCTCGC80NM','https://vendor.e-craft.in/uploads/CCTCGC80NM_69be7d6ce7267_lg.jpeg','2026-03-21 11:13:48',''),
+('CCTLPI0GNM','https://vendor.e-craft.in/uploads/CCTLPI0GNM_69cd0df193d42_lg.jpeg','2026-04-01 12:22:09','Blue'),
+('CCUQT1YFNM','https://vendor.e-craft.in/uploads/CCUQT1YFNM_69ccfebd6873f_lg.jpeg','2026-04-01 11:17:17','Blue'),
+('CCUWJNZFNM','https://vendor.e-craft.in/uploads/CCUWJNZFNM_69cd07df7077a_lg.jpeg','2026-04-01 11:56:15','Green'),
+('CCV1LE3WMM','https://vendor.e-craft.in/uploads/CCV1LE3WMM_69baac67df704_lg.jpeg','2026-03-18 13:45:12',''),
+('CCV1LE3WMM','https://vendor.e-craft.in/uploads/CCV1LE3WMM_69baac6e643af_lg.jpeg','2026-03-18 13:45:18',''),
+('CCV1LE3WMM','https://vendor.e-craft.in/uploads/CCV1LE3WMM_69baac73d300b_lg.jpeg','2026-03-18 13:45:23',''),
+('CCVPUOYFNM','https://vendor.e-craft.in/uploads/CCVPUOYFNM_69cd020178e0e_lg.jpeg','2026-04-01 11:31:13','Blue'),
+('CCW6Z96UMM','https://vendor.e-craft.in/uploads/CCW6Z96UMM_69b8e833b4b57_lg.jpeg','2026-03-17 05:35:47',''),
+('CCW6Z96UMM','https://vendor.e-craft.in/uploads/CCW6Z96UMM_69b8e833ba336_lg.jpeg','2026-03-17 05:35:47',''),
+('CCW9KF90NM','https://vendor.e-craft.in/uploads/CCW9KF90NM_69be849d7e436_lg.jpeg','2026-03-21 11:44:29',''),
+('CCW9KF90NM','https://vendor.e-craft.in/uploads/CCW9KF90NM_69be84a67f14a_lg.jpeg','2026-03-21 11:44:38',''),
+('CCWC52GXMM','https://vendor.e-craft.in/uploads/CCWC52GXMM_69bbeb7b3e855_lg.jpeg','2026-03-19 12:26:35',''),
+('CCWC52GXMM','https://vendor.e-craft.in/uploads/CCWC52GXMM_69bbeb85a1985_lg.jpeg','2026-03-19 12:26:45',''),
+('CCWC52GXMM','https://vendor.e-craft.in/uploads/CCWC52GXMM_69bbeb8b54a6c_lg.jpeg','2026-03-19 12:26:51',''),
+('CCWCD6WYMM','https://vendor.e-craft.in/uploads/CCWCD6WYMM_69bd417e684ac_lg.jpeg','2026-03-20 12:45:50',''),
+('CCWCD6WYMM','https://vendor.e-craft.in/uploads/CCWCD6WYMM_69bd417e740ef_lg.jpeg','2026-03-20 12:45:50',''),
+('CCWCD6WYMM','https://vendor.e-craft.in/uploads/CCWCD6WYMM_69bd417e7d440_lg.jpeg','2026-03-20 12:45:50',''),
+('CCWK8LXYMM','https://vendor.e-craft.in/uploads/CCWK8LXYMM_69bd4ab5a167d_lg.jpeg','2026-03-20 13:25:09',''),
+('CCWK8LXYMM','https://vendor.e-craft.in/uploads/CCWK8LXYMM_69bd4ab5a5f01_lg.jpeg','2026-03-20 13:25:09',''),
+('CCWKLTWYMM','https://vendor.e-craft.in/uploads/CCWKLTWYMM_69bd45c74a829_lg.jpeg','2026-03-20 13:04:07',''),
+('CCWKLTWYMM','https://vendor.e-craft.in/uploads/CCWKLTWYMM_69bd4617d8f27_lg.jpeg','2026-03-20 13:05:27',''),
+('CCWKLTWYMM','https://vendor.e-craft.in/uploads/CCWKLTWYMM_69bd4625acc72_lg.jpeg','2026-03-20 13:05:41',''),
+('CCX1BNGXMM','https://vendor.e-craft.in/uploads/CCX1BNGXMM_69bbefbec0c01_lg.jpeg','2026-03-19 12:44:46',''),
+('CCX1BNGXMM','https://vendor.e-craft.in/uploads/CCX1BNGXMM_69bbefc50c5db_lg.jpeg','2026-03-19 12:44:53',''),
+('CCX1BNGXMM','https://vendor.e-craft.in/uploads/CCX1BNGXMM_69bbefcacec9c_lg.jpeg','2026-03-19 12:44:58',''),
+('CCX3MG5UMM','https://vendor.e-craft.in/uploads/CCX3MG5UMM_69b8e32e7e23b_lg.jpeg','2026-03-17 05:14:22',''),
+('CCX3MG5UMM','https://vendor.e-craft.in/uploads/CCX3MG5UMM_69b8e32e8d35e_lg.jpeg','2026-03-17 05:14:22',''),
+('CCXRQ6IXMM','https://vendor.e-craft.in/uploads/CCXRQ6IXMM_69bbf97b1f0bd_lg.jpeg','2026-03-19 13:26:19',''),
+('CCXRQ6IXMM','https://vendor.e-craft.in/uploads/CCXRQ6IXMM_69bbf98161d05_lg.jpeg','2026-03-19 13:26:25',''),
+('CCXRQ6IXMM','https://vendor.e-craft.in/uploads/CCXRQ6IXMM_69bbf98649090_lg.jpeg','2026-03-19 13:26:30',''),
+('CCXU6EIXMM','https://vendor.e-craft.in/uploads/CCXU6EIXMM_69bbfafe2d528_lg.jpeg','2026-03-19 13:32:46',''),
+('CCXU6EIXMM','https://vendor.e-craft.in/uploads/CCXU6EIXMM_69bbfb0488132_lg.jpeg','2026-03-19 13:32:52',''),
+('CCXU6EIXMM','https://vendor.e-craft.in/uploads/CCXU6EIXMM_69bbfb0ae5a10_lg.jpeg','2026-03-19 13:32:58',''),
+('CCYTRGVYMM','https://vendor.e-craft.in/uploads/CCYTRGVYMM_69bd3d1a5b846_lg.jpeg','2026-03-20 12:27:06',''),
+('CCYTRGVYMM','https://vendor.e-craft.in/uploads/CCYTRGVYMM_69bd3d29aafdd_lg.jpeg','2026-03-20 12:27:21',''),
+('CCYTRGVYMM','https://vendor.e-craft.in/uploads/CCYTRGVYMM_69bd3d37418ea_lg.jpeg','2026-03-20 12:27:35',''),
+('CCZATVLFNM','https://vendor.e-craft.in/uploads/CCZATVLFNM_69ccadd0bd8e9_lg.jpeg','2026-04-01 05:32:00','Black'),
+('CCZATVLFNM','https://vendor.e-craft.in/uploads/CCZATVLFNM_69ccaea2b6cfe_lg.jpeg','2026-04-01 05:35:30','Red'),
+('CCZATVLFNM','https://vendor.e-craft.in/uploads/CCZATVLFNM_69ccafa73d169_lg.jpeg','2026-04-01 05:39:51','Black'),
+('CCZATVLFNM','https://vendor.e-craft.in/uploads/CCZATVLFNM_69ccb0b940c5b_lg.jpeg','2026-04-01 05:44:25','Green'),
+('CCZATVLFNM','https://vendor.e-craft.in/uploads/CCZATVLFNM_69ccb0e3d4491_lg.jpeg','2026-04-01 05:45:08','Black'),
+('CCZATVLFNM','https://vendor.e-craft.in/uploads/CCZATVLFNM_69ccb165b1009_lg.jpeg','2026-04-01 05:47:17','Sky Blue'),
+('CCZAXTHXMM','https://vendor.e-craft.in/uploads/CCZAXTHXMM_69bbf722a30e4_lg.jpeg','2026-03-19 13:16:18',''),
+('CCZAXTHXMM','https://vendor.e-craft.in/uploads/CCZAXTHXMM_69bbf72999e4c_lg.jpeg','2026-03-19 13:16:25',''),
+('CCZCQEYYMM','https://vendor.e-craft.in/uploads/CCZCQEYYMM_69bd5016bee93_lg.jpeg','2026-03-20 13:48:06',''),
+('CCZCQEYYMM','https://vendor.e-craft.in/uploads/CCZCQEYYMM_69bd5016c5094_lg.jpeg','2026-03-20 13:48:06',''),
+('CCZCQEYYMM','https://vendor.e-craft.in/uploads/CCZCQEYYMM_69bd5016cb1b9_lg.jpeg','2026-03-20 13:48:06',''),
+('CCZXY6YYMM','https://vendor.e-craft.in/uploads/CCZXY6YYMM_69bd4eb843f55_lg.jpeg','2026-03-20 13:42:16',''),
+('CCZXY6YYMM','https://vendor.e-craft.in/uploads/CCZXY6YYMM_69bd4ebe583f3_lg.jpeg','2026-03-20 13:42:22','');
 /*!40000 ALTER TABLE `item_image` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `item_meta`
---
-
-DROP TABLE IF EXISTS `item_meta`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE `item_meta` (
-  `item_id` varchar(10) NOT NULL,
-  `item_meta_json` text NOT NULL,
-  `created_on` timestamp NOT NULL DEFAULT current_timestamp(),
-  `modified_on` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`item_id`),
-  CONSTRAINT `item_meta_id_key` FOREIGN KEY (`item_id`) REFERENCES `item` (`item_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `item_meta`
---
-
-LOCK TABLES `item_meta` WRITE;
-/*!40000 ALTER TABLE `item_meta` DISABLE KEYS */;
-INSERT INTO `item_meta` VALUES
-('CC0V1D70NM','[{\"description\":\"Pure Cotton jamdani Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-21 10:46:10','2026-03-21 10:46:10'),
-('CC1CMRFXMM','[{\"description\":\"Dhakai Muslin Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-19 12:18:08','2026-03-19 12:18:08'),
-('CC1KXO3WMM','[{\"description\":\"Katan Silk Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-18 13:52:21','2026-03-18 13:52:21'),
-('CC1SBQJXMM','[{\"description\":\" The elegance of traditional fabric and finery with Blouse .\",\"size\":\"\",\"color\":\"\"}]','2026-03-19 14:09:06','2026-03-19 14:09:06'),
-('CC1W3AHXMM','[{\"description\":\"Dhola silk sarees are luxurious, soft, and lightweight garments made from a blend of silk and synthetic fibers , featuring a subtle sheen and high durability.\",\"size\":\"\",\"color\":\"\"}]','2026-03-19 13:00:30','2026-03-19 13:03:08'),
-('CC2FKUVYMM','[{\"description\":\"Pure Soft & Silky\",\"size\":\"\",\"color\":\"\"}]','2026-03-20 12:36:05','2026-03-20 12:36:05'),
-('CC3FB1CXMM','[{\"description\":\"Open Border Silk Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-19 10:33:42','2026-03-19 10:33:42'),
-('CC3KP090NM','[{\"description\":\"Pure Silk Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-21 11:32:33','2026-03-21 11:32:33'),
-('CC3ODJ80NM','[{\"description\":\"Pure Cotton Handloom Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-21 11:19:04','2026-03-21 11:19:04'),
-('CC6B0BYYMM','[{\"description\":\"leather handbags for women\",\"size\":\"\",\"color\":\"\"}]','2026-03-20 13:44:52','2026-03-20 13:44:52'),
-('CC741JIXMM','[{\"description\":\"Katan Silk Bararasi Saree With Blouse Piece .\",\"size\":\"\",\"color\":\"\"}]','2026-03-19 13:35:26','2026-03-19 13:35:26'),
-('CC85NDWYMM','[{\"description\":\"Evergreen Silk Saree \",\"size\":\"\",\"color\":\"\"}]','2026-03-20 12:50:55','2026-03-20 12:50:55'),
-('CC9R8BA0NM','[{\"description\":\"Handloom Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-21 12:08:44','2026-03-21 12:08:44'),
-('CCA6A0IXMM','[{\"description\":\"Katan Open Border Slik Banarasi Saree With Blouse Piece .\",\"size\":\"\",\"color\":\"\"}]','2026-03-19 13:20:51','2026-03-19 13:22:18'),
-('CCADDP80NM','[{\"description\":\"Madhosh Silk Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-21 11:23:44','2026-03-21 11:23:44'),
-('CCAJAIHXMM','[{\"description\":\"A Pochampally saree is a traditional handwoven saree made in Bhoodan Pochampally, Telangana, India, renowned for its distinctive geometric patterns and vibrant colors.\",\"size\":\"\",\"color\":\"\"}]','2026-03-19 13:06:52','2026-03-19 13:06:52'),
-('CCAMXSJXMM','[{\"description\":\"The elegance of traditional fabric and finery with Blouse .\",\"size\":\"\",\"color\":\"\"}]','2026-03-19 14:11:07','2026-03-19 14:11:07'),
-('CCB0R5A0NM','[{\"description\":\"Handloom Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-21 12:04:28','2026-03-21 12:04:28'),
-('CCB2CYVYMM','[{\"description\":\"Open Border Silk Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-20 12:39:01','2026-03-20 12:39:01'),
-('CCBJD93WMM','[{\"description\":\"Mulberry Silk Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-18 13:40:15','2026-03-18 13:40:15'),
-('CCBOXCA0NM','[{\"description\":\"Handloom Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-21 12:10:03','2026-03-21 12:10:03'),
-('CCCZK0XYMM','[{\"description\":\"Maliska Sartin Silk Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-20 13:08:46','2026-03-20 13:08:46'),
-('CCD1E4XYMM','[{\"description\":\"Baluchuri Silk Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-20 13:11:43','2026-03-20 13:11:43'),
-('CCE2KDVYMM','[{\"description\":\"Swarnachari sarees are opulent Bengali pure silk sarees .\",\"size\":\"\",\"color\":\"\"}]','2026-03-20 12:22:52','2026-03-20 12:22:52'),
-('CCEHXCGXMM','[{\"description\":\"Maliska Sartin Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-19 12:34:42','2026-03-19 12:34:42'),
-('CCF3Y0YYMM','[{\"description\":\"leather handbags for women\",\"size\":\"\",\"color\":\"\"}]','2026-03-20 13:37:02','2026-03-20 13:37:02'),
-('CCFBGOVYMM','[{\"description\":\" Frequently highlights Bollywood style, casual wear, and party wear.\",\"size\":\"\",\"color\":\"\"}]','2026-03-20 12:31:20','2026-03-20 12:31:20'),
-('CCFLOAIXMM','[{\"description\":\"Katan Silk Banarasi Saree With Blouse Piece .\",\"size\":\"\",\"color\":\"\"}]','2026-03-19 13:28:56','2026-03-19 13:28:56'),
-('CCFOJSUYMM','[{\"description\":\"Swarnachuram Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-20 12:06:31','2026-03-20 12:06:31'),
-('CCH30O2WMM','[{\"description\":\"Jamdani Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-18 13:23:38','2026-03-18 13:23:38'),
-('CCHA8W90NM','[{\"description\":\"Deep Yellow Owl Jute Necklace Set\\r\\n\",\"size\":\"\",\"color\":\"\"}]','2026-03-21 11:57:04','2026-03-21 11:57:04'),
-('CCIVGV80NM','[{\"description\":\"Saniya Patli Pallu Silk Saree With Blouse Piece\",\"size\":\"\",\"color\":\"\"}]','2026-03-21 11:28:28','2026-03-21 11:29:38'),
-('CCJ91KFXMM','[{\"description\":\"Sartin Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-19 12:12:14','2026-03-19 12:12:14'),
-('CCJSS1VYMM','[{\"description\":\"comfortable and breathable, which makes them suitable to wear all year round. Cotton sarees are suitable during the monsoons, winters, and summers.\",\"size\":\"\",\"color\":\"\"}]','2026-03-20 12:13:43','2026-03-20 12:13:43'),
-('CCL0AP60NM','[{\"description\":\"Maahi Handloom Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-21 10:27:40','2026-03-21 10:27:40'),
-('CCM4D5GXMM','[{\"description\":\"Jamdani Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-19 12:28:49','2026-03-19 12:28:49'),
-('CCMMRV3WMM','[{\"description\":\"Karni Chilam Silk Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-18 13:57:40','2026-03-18 13:57:40'),
-('CCNKH0A0NM','[{\"description\":\"Handloom Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-21 12:00:22','2026-03-21 12:00:22'),
-('CCNPTZGXMM','[{\"description\":\"Pochampalli Silk Woven Design Saree with Unstitched Blouse\",\"size\":\"\",\"color\":\"\"}]','2026-03-19 12:52:30','2026-03-19 12:52:30'),
-('CCQIF2HYMM','[{\"description\":\"Classic Indigo Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-20 05:42:18','2026-03-20 05:42:18'),
-('CCQJRZ60NM','[{\"description\":\"Maahi Handloom Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-21 10:35:50','2026-03-21 10:35:50'),
-('CCQTVJCTMM','[{\"description\":\"demo description\",\"size\":\"42\",\"color\":\"Pink\"}]','2026-03-16 15:37:03','2026-03-16 15:44:28'),
-('CCQW224WMM','[{\"description\":\"Karni Chilam Silk Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-18 14:02:34','2026-03-18 14:02:34'),
-('CCQWR03WMM','[{\"description\":\"Silky Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-18 13:33:34','2026-03-18 13:33:34'),
-('CCRL8280NM','[{\"description\":\"Handmade Green & White Cowrie Shell Jewelry Set for Women \\u2013 Ethnic Necklace & Earrings \\u2013 Traditional & Tribal Jewellery for Festivals\",\"size\":\"\",\"color\":\"\"}]','2026-03-21 11:05:45','2026-03-21 11:09:56'),
-('CCRTS91WMM','[{\"description\":\"Minu Silk Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-18 12:44:36','2026-03-18 12:44:36'),
-('CCSBS8GXMM','[{\"description\":\"Jamdani Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-19 12:31:29','2026-03-19 12:31:29'),
-('CCT8IM80NM','[{\"description\":\"Pure Cotton Handloom Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-21 11:21:30','2026-03-21 11:21:30'),
-('CCT8SE2WMM','[{\"description\":\"Open Border Silk Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-18 13:16:28','2026-03-18 13:16:28'),
-('CCTCGC80NM','[{\"description\":\"Handcrafted Durga Devi Pendant Necklace, Traditional Indian Design with Shell Beads, Green and White\",\"size\":\"\",\"color\":\"\"}]','2026-03-21 11:13:41','2026-03-21 11:13:41'),
-('CCV1LE3WMM','[{\"description\":\"Evergreen Silk Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-18 13:44:18','2026-03-18 13:44:18'),
-('CCW6Z96UMM','[{\"description\":\"Women lnnerwear\",\"size\":\"32\",\"color\":\"blue, pink\"}]','2026-03-17 05:29:09','2026-03-17 05:29:09'),
-('CCW9KF90NM','[{\"description\":\"These sarees feature lightweight, flowy fabric that\'s perfect for warm weather .\",\"size\":\"\",\"color\":\"\"}]','2026-03-21 11:44:06','2026-03-21 11:44:06'),
-('CCWC52GXMM','[{\"description\":\"Jamdani Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-19 12:26:19','2026-03-19 12:26:19'),
-('CCWCD6WYMM','[{\"description\":\"Swarnachuri Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-20 12:45:16','2026-03-20 12:45:16'),
-('CCWK8LXYMM','[{\"description\":\"Exotic Ladies Handbag\",\"size\":\"\",\"color\":\"\"}]','2026-03-20 13:24:49','2026-03-20 13:24:49'),
-('CCWKLTWYMM','[{\"description\":\"Maliska Sartin Silk Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-20 13:03:20','2026-03-20 13:03:20'),
-('CCX1BNGXMM','[{\"description\":\"Katan Silk is the purest form of silk with a plain woven fabric .\",\"size\":\"\",\"color\":\"\"}]','2026-03-19 12:42:46','2026-03-19 12:42:46'),
-('CCX3MG5UMM','[{\"description\":\"Woman Innerwear\",\"size\":\"32,34,36\",\"color\":\"Pink,\"}]','2026-03-17 05:06:20','2026-03-17 05:19:58'),
-('CCXRQ6IXMM','[{\"description\":\"Open border silk saree features a distinct, often contrasting border woven separately and attached, resulting in a luxurious, lightweight, and modern traditional look with Blouse Piece .\",\"size\":\"\",\"color\":\"\"}]','2026-03-19 13:25:53','2026-03-19 13:25:53'),
-('CCXU6EIXMM','[{\"description\":\"Katan Silk Banarasi Saree With Boluse Piece .\",\"size\":\"\",\"color\":\"\"}]','2026-03-19 13:31:40','2026-03-19 13:31:40'),
-('CCYTRGVYMM','[{\"description\":\"Super Silky Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-20 12:25:22','2026-03-20 12:25:22'),
-('CCZAXTHXMM','[{\"description\":\"Pure Fandy Silk Saree With Blouse\",\"size\":\"\",\"color\":\"\"}]','2026-03-19 13:15:54','2026-03-19 13:15:54'),
-('CCZCQEYYMM','[{\"description\":\"Pure Cotton Handloom Saree\",\"size\":\"\",\"color\":\"\"}]','2026-03-20 13:47:45','2026-03-20 13:47:45'),
-('CCZXY6YYMM','[{\"description\":\"leather handbags for women\",\"size\":\"\",\"color\":\"\"}]','2026-03-20 13:41:43','2026-03-20 13:41:43');
-/*!40000 ALTER TABLE `item_meta` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `item_name`
---
-
-DROP TABLE IF EXISTS `item_name`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE `item_name` (
-  `item_id` varchar(10) NOT NULL,
-  `item_name_json` text NOT NULL,
-  `created_on` timestamp NOT NULL DEFAULT current_timestamp(),
-  `modified_on` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`item_id`),
-  CONSTRAINT `item_name_key` FOREIGN KEY (`item_id`) REFERENCES `item` (`item_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `item_name`
---
-
-LOCK TABLES `item_name` WRITE;
-/*!40000 ALTER TABLE `item_name` DISABLE KEYS */;
-INSERT INTO `item_name` VALUES
-('CC0V1D70NM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"5\",\"text\":\"Jamdani Saree\",\"source\":\"brand\"},{\"id\":\"CC0V1D70NM\",\"text\":\"Pure Cotton jamdani Saree\",\"source\":\"alias\"}]','2026-03-21 10:46:10','2026-03-21 10:46:10'),
-('CC1CMRFXMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"13\",\"text\":\"Dhakai Muslin saree\",\"source\":\"brand\"},{\"id\":\"CC1CMRFXMM\",\"text\":\"Dhakai Muslin Saree\",\"source\":\"alias\"}]','2026-03-19 12:18:08','2026-03-19 12:18:08'),
-('CC1KXO3WMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"9\",\"text\":\"Katan Silk Saree\",\"source\":\"brand\"},{\"id\":\"CC1KXO3WMM\",\"text\":\"Katan Silk Saree\",\"source\":\"alias\"}]','2026-03-18 13:52:21','2026-03-18 13:52:21'),
-('CC1SBQJXMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"17\",\"text\":\"Thausand Butti Silk Saree\",\"source\":\"brand\"},{\"id\":\"CC1SBQJXMM\",\"text\":\"Thausand Butti Silk Saree\",\"source\":\"alias\"}]','2026-03-19 14:09:06','2026-03-19 14:09:06'),
-('CC1W3AHXMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"15\",\"text\":\"Dhola Silk Saree\",\"source\":\"brand\"},{\"id\":\"CC1W3AHXMM\",\"text\":\"Dhola Silk Saree\",\"source\":\"alias\"}]','2026-03-19 13:00:30','2026-03-19 13:00:30'),
-('CC2FKUVYMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"9\",\"text\":\"Katan Silk Banarasi Saree\",\"source\":\"brand\"},{\"id\":\"CC2FKUVYMM\",\"text\":\"Maliska Sartin Silk Saree\",\"source\":\"alias\"}]','2026-03-20 12:36:05','2026-03-20 12:36:05'),
-('CC3FB1CXMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"11\",\"text\":\"Open Border Silk Saree\",\"source\":\"brand\"},{\"id\":\"CC3FB1CXMM\",\"text\":\"Open Border Silk Saree\",\"source\":\"alias\"}]','2026-03-19 10:33:42','2026-03-19 10:33:42'),
-('CC3KP090NM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"4\",\"text\":\"Silky Dhamaka\",\"source\":\"brand\"},{\"id\":\"CC3KP090NM\",\"text\":\"Pure Silk Saree\",\"source\":\"alias\"}]','2026-03-21 11:32:33','2026-03-21 11:32:33'),
-('CC3ODJ80NM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"20\",\"text\":\"Handloom Saree\",\"source\":\"brand\"},{\"id\":\"CC3ODJ80NM\",\"text\":\"Pure Cotton Handloom Saree\",\"source\":\"alias\"}]','2026-03-21 11:19:04','2026-03-21 11:19:04'),
-('CC6B0BYYMM','[{\"id\":\"4\",\"text\":\"Ladies HandBag\",\"source\":\"generic\"},{\"id\":\"59\",\"text\":\"Bags-Hand Purse\",\"source\":\"category\"},{\"id\":\"25\",\"text\":\"leather Handbag for Women\",\"source\":\"brand\"},{\"id\":\"CC6B0BYYMM\",\"text\":\"Hand Purse\",\"source\":\"alias\"}]','2026-03-20 13:44:52','2026-03-20 13:44:52'),
-('CC741JIXMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"9\",\"text\":\"Katan Silk Banarasi Saree\",\"source\":\"brand\"},{\"id\":\"CC741JIXMM\",\"text\":\"Katan Silk Banarasi Saree \",\"source\":\"alias\"}]','2026-03-19 13:35:26','2026-03-19 13:35:26'),
-('CC85NDWYMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"22\",\"text\":\"Evergreen Silk Saree\",\"source\":\"brand\"},{\"id\":\"CC85NDWYMM\",\"text\":\"Evergreen Silk Saree \",\"source\":\"alias\"}]','2026-03-20 12:50:55','2026-03-20 12:50:55'),
-('CC9R8BA0NM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"20\",\"text\":\"Handloom Saree\",\"source\":\"brand\"},{\"id\":\"CC9R8BA0NM\",\"text\":\"Handloom Saree\",\"source\":\"alias\"}]','2026-03-21 12:08:44','2026-03-21 12:08:44'),
-('CCA6A0IXMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"9\",\"text\":\"Katan Silk Banarasi Saree\",\"source\":\"brand\"},{\"id\":\"CCA6A0IXMM\",\"text\":\"Katan Silk Banarasi Saree\",\"source\":\"alias\"}]','2026-03-19 13:20:51','2026-03-19 13:20:51'),
-('CCADDP80NM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"4\",\"text\":\"Silky Dhamaka\",\"source\":\"brand\"},{\"id\":\"CCADDP80NM\",\"text\":\"Madhosh Silk Saree\",\"source\":\"alias\"}]','2026-03-21 11:23:44','2026-03-21 11:23:44'),
-('CCAJAIHXMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"14\",\"text\":\"Pochampalli Silk Saree\",\"source\":\"brand\"},{\"id\":\"CCAJAIHXMM\",\"text\":\"Ponchampalli Chilam Silk Saree\",\"source\":\"alias\"}]','2026-03-19 13:06:52','2026-03-19 13:06:52'),
-('CCAMXSJXMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"17\",\"text\":\"Thausand Butti Silk Saree\",\"source\":\"brand\"},{\"id\":\"CCAMXSJXMM\",\"text\":\"1000 Butti Silk Saree\",\"source\":\"alias\"}]','2026-03-19 14:11:07','2026-03-19 14:11:07'),
-('CCB0R5A0NM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"20\",\"text\":\"Handloom Saree\",\"source\":\"brand\"},{\"id\":\"CCB0R5A0NM\",\"text\":\"Handloom Saree\",\"source\":\"alias\"}]','2026-03-21 12:04:28','2026-03-21 12:04:28'),
-('CCB2CYVYMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"11\",\"text\":\"Open Border Silk Saree\",\"source\":\"brand\"},{\"id\":\"CCB2CYVYMM\",\"text\":\"Open Border Silk Saree\",\"source\":\"alias\"}]','2026-03-20 12:39:01','2026-03-20 12:39:01'),
-('CCBJD93WMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"7\",\"text\":\"Mulberry Silk Saree\",\"source\":\"brand\"},{\"id\":\"CCBJD93WMM\",\"text\":\"Mulberry Silk Saree\",\"source\":\"alias\"}]','2026-03-18 13:40:15','2026-03-18 13:40:15'),
-('CCBOXCA0NM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"20\",\"text\":\"Handloom Saree\",\"source\":\"brand\"},{\"id\":\"CCBOXCA0NM\",\"text\":\"Handloom Saree\",\"source\":\"alias\"}]','2026-03-21 12:10:03','2026-03-21 12:10:03'),
-('CCCZK0XYMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"12\",\"text\":\"Sartin Saree\",\"source\":\"brand\"},{\"id\":\"CCCZK0XYMM\",\"text\":\"Maliska Sartin Silk Saree\",\"source\":\"alias\"}]','2026-03-20 13:08:46','2026-03-20 13:08:46'),
-('CCD1E4XYMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"23\",\"text\":\"Baluchuri Saree\",\"source\":\"brand\"},{\"id\":\"CCD1E4XYMM\",\"text\":\"Baluchuri Silk Saree\",\"source\":\"alias\"}]','2026-03-20 13:11:43','2026-03-20 13:11:43'),
-('CCE2KDVYMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"19\",\"text\":\"Pure Silk Swarnachuri Saree\",\"source\":\"brand\"},{\"id\":\"CCE2KDVYMM\",\"text\":\"Pure Silk Swarnachuri Saree\",\"source\":\"alias\"}]','2026-03-20 12:22:52','2026-03-20 12:22:52'),
-('CCEHXCGXMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"12\",\"text\":\"Sartin Saree\",\"source\":\"brand\"},{\"id\":\"CCEHXCGXMM\",\"text\":\"Maliska Sartin Saree\",\"source\":\"alias\"}]','2026-03-19 12:34:42','2026-03-19 12:34:42'),
-('CCF3Y0YYMM','[{\"id\":\"5\",\"text\":\"leather handbags\",\"source\":\"generic\"},{\"id\":\"55\",\"text\":\"Bags-Bags\",\"source\":\"category\"},{\"id\":\"25\",\"text\":\"leather Handbag for Women\",\"source\":\"brand\"},{\"id\":\"CCF3Y0YYMM\",\"text\":\"leather handbags for women\",\"source\":\"alias\"}]','2026-03-20 13:37:02','2026-03-20 13:37:02'),
-('CCFBGOVYMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"21\",\"text\":\"Guddu Saree\",\"source\":\"brand\"},{\"id\":\"CCFBGOVYMM\",\"text\":\"Guddu Saree\",\"source\":\"alias\"}]','2026-03-20 12:31:20','2026-03-20 12:31:20'),
-('CCFLOAIXMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"9\",\"text\":\"Katan Silk Banarasi Saree\",\"source\":\"brand\"},{\"id\":\"CCFLOAIXMM\",\"text\":\"Katan Silk Banarasi Saree \",\"source\":\"alias\"}]','2026-03-19 13:28:56','2026-03-19 13:28:56'),
-('CCFOJSUYMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"19\",\"text\":\"Swarnachuram Saree\",\"source\":\"brand\"},{\"id\":\"CCFOJSUYMM\",\"text\":\"Swarnachuram Saree\",\"source\":\"alias\"}]','2026-03-20 12:06:31','2026-03-20 12:06:31'),
-('CCH30O2WMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"5\",\"text\":\"Jamdani Saree\",\"source\":\"brand\"},{\"id\":\"CCH30O2WMM\",\"text\":\"Jamdani Saree\",\"source\":\"alias\"}]','2026-03-18 13:23:38','2026-03-18 13:23:38'),
-('CCHA8W90NM','[{\"id\":\"7\",\"text\":\"Jute Necklace Set\",\"source\":\"generic\"},{\"id\":\"52\",\"text\":\"Decor-Handicraft\",\"source\":\"category\"},{\"id\":\"28\",\"text\":\"Jute Necklace Set\",\"source\":\"brand\"},{\"id\":\"CCHA8W90NM\",\"text\":\"Deep Yellow Jute Owl Necklace Set\",\"source\":\"alias\"}]','2026-03-21 11:57:04','2026-03-21 11:57:04'),
-('CCIVGV80NM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"4\",\"text\":\"Silky Dhamaka\",\"source\":\"brand\"},{\"id\":\"CCIVGV80NM\",\"text\":\"Saniya Patli Pallu Silk Saree\",\"source\":\"alias\"}]','2026-03-21 11:28:28','2026-03-21 11:28:28'),
-('CCJ91KFXMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"12\",\"text\":\"Sartin Saree\",\"source\":\"brand\"},{\"id\":\"CCJ91KFXMM\",\"text\":\"Sartin Saree\",\"source\":\"alias\"}]','2026-03-19 12:12:14','2026-03-19 12:12:14'),
-('CCJSS1VYMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"20\",\"text\":\"Handloom Saree\",\"source\":\"brand\"},{\"id\":\"CCJSS1VYMM\",\"text\":\"Handloom Cotton Saree\",\"source\":\"alias\"}]','2026-03-20 12:13:43','2026-03-20 12:13:43'),
-('CCL0AP60NM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"20\",\"text\":\"Handloom Saree\",\"source\":\"brand\"},{\"id\":\"CCL0AP60NM\",\"text\":\"Maahi Handloom Saree\",\"source\":\"alias\"}]','2026-03-21 10:27:40','2026-03-21 10:27:40'),
-('CCM4D5GXMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"5\",\"text\":\"Jamdani Saree\",\"source\":\"brand\"},{\"id\":\"CCM4D5GXMM\",\"text\":\"Jamdani Saree\",\"source\":\"alias\"}]','2026-03-19 12:28:49','2026-03-19 12:28:49'),
-('CCMMRV3WMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"10\",\"text\":\"Karni Chilam Silk Saree\",\"source\":\"brand\"},{\"id\":\"CCMMRV3WMM\",\"text\":\"Karni Chilam Silk Saree\",\"source\":\"alias\"}]','2026-03-18 13:57:40','2026-03-18 13:57:40'),
-('CCNKH0A0NM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"20\",\"text\":\"Handloom Saree\",\"source\":\"brand\"},{\"id\":\"CCNKH0A0NM\",\"text\":\"Handloom Saree\",\"source\":\"alias\"}]','2026-03-21 12:00:22','2026-03-21 12:00:22'),
-('CCNPTZGXMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"14\",\"text\":\"Pochampalli Silk Saree\",\"source\":\"brand\"},{\"id\":\"CCNPTZGXMM\",\"text\":\"Pochampalli Chilam Silk Saree\",\"source\":\"alias\"}]','2026-03-19 12:52:30','2026-03-19 12:52:30'),
-('CCQIF2HYMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"18\",\"text\":\"Classic Indigo Saree\",\"source\":\"brand\"},{\"id\":\"CCQIF2HYMM\",\"text\":\"Classic Indigo Saree\",\"source\":\"alias\"}]','2026-03-20 05:42:18','2026-03-20 05:42:18'),
-('CCQJRZ60NM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"20\",\"text\":\"Handloom Saree\",\"source\":\"brand\"},{\"id\":\"CCQJRZ60NM\",\"text\":\"Maahi Handloom Saree\",\"source\":\"alias\"}]','2026-03-21 10:35:50','2026-03-21 10:35:50'),
-('CCQTVJCTMM','[{\"id\":\"1\",\"text\":\"Kurti\",\"source\":\"generic\"},{\"id\":\"10\",\"text\":\"Women\'s Fashion-Kurtas & Kurtis\",\"source\":\"category\"},{\"id\":\"1\",\"text\":\"Craft Cottage\",\"source\":\"brand\"},{\"id\":\"CCQTVJCTMM\",\"text\":\"Pname\",\"source\":\"alias\"}]','2026-03-16 15:37:03','2026-03-16 15:37:03'),
-('CCQW224WMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"10\",\"text\":\"Karni Chilam Silk Saree\",\"source\":\"brand\"},{\"id\":\"CCQW224WMM\",\"text\":\"Karni Chilam Silk Saree\",\"source\":\"alias\"}]','2026-03-18 14:02:34','2026-03-18 14:02:34'),
-('CCQWR03WMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"6\",\"text\":\"Silky Saree\",\"source\":\"brand\"},{\"id\":\"CCQWR03WMM\",\"text\":\"Silky Saree\",\"source\":\"alias\"}]','2026-03-18 13:33:34','2026-03-18 13:33:34'),
-('CCRL8280NM','[{\"id\":\"6\",\"text\":\"Handcrafted Cowrie Shell Necklace\",\"source\":\"generic\"},{\"id\":\"52\",\"text\":\"Decor-Handicraft\",\"source\":\"category\"},{\"id\":\"26\",\"text\":\"handcrafted cowrie shell necklace\",\"source\":\"brand\"},{\"id\":\"CCRL8280NM\",\"text\":\"Handcrafted cowrie shell necklace\",\"source\":\"alias\"}]','2026-03-21 11:05:45','2026-03-21 11:16:57'),
-('CCRTS91WMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"3\",\"text\":\"Minu\",\"source\":\"brand\"},{\"id\":\"CCRTS91WMM\",\"text\":\"Minu Silk Saree\",\"source\":\"alias\"}]','2026-03-18 12:44:36','2026-03-18 12:44:36'),
-('CCSBS8GXMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"5\",\"text\":\"Jamdani Saree\",\"source\":\"brand\"},{\"id\":\"CCSBS8GXMM\",\"text\":\"Jamdani Saree\",\"source\":\"alias\"}]','2026-03-19 12:31:29','2026-03-19 12:31:29'),
-('CCT8IM80NM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"20\",\"text\":\"Handloom Saree\",\"source\":\"brand\"},{\"id\":\"CCT8IM80NM\",\"text\":\"Pure Cotton Handloom Saree\",\"source\":\"alias\"}]','2026-03-21 11:21:30','2026-03-21 11:21:30'),
-('CCT8SE2WMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"4\",\"text\":\"Silky Dhamaka\",\"source\":\"brand\"},{\"id\":\"CCT8SE2WMM\",\"text\":\"Open Border Silk Saree\",\"source\":\"alias\"}]','2026-03-18 13:16:28','2026-03-18 13:16:28'),
-('CCTCGC80NM','[{\"id\":\"6\",\"text\":\"Handcrafted Cowrie Shell Necklace\",\"source\":\"generic\"},{\"id\":\"52\",\"text\":\"Decor-Handicraft\",\"source\":\"category\"},{\"id\":\"26\",\"text\":\"handcrafted cowrie shell necklace\",\"source\":\"brand\"},{\"id\":\"CCTCGC80NM\",\"text\":\"Handcrafted cowrie shell necklace\",\"source\":\"alias\"}]','2026-03-21 11:13:41','2026-03-21 11:16:05'),
-('CCV1LE3WMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"8\",\"text\":\"Evergreen Silk Saree\",\"source\":\"brand\"},{\"id\":\"CCV1LE3WMM\",\"text\":\"Evergreen Silk Saree\",\"source\":\"alias\"}]','2026-03-18 13:44:18','2026-03-18 13:44:18'),
-('CCW6Z96UMM','[{\"id\":\"2\",\"text\":\"Woman Innerwear\",\"source\":\"generic\"},{\"id\":\"19\",\"text\":\"Women\'s Fashion-Bras & Panties\",\"source\":\"category\"},{\"id\":\"2\",\"text\":\"One Star\",\"source\":\"brand\"},{\"id\":\"CCW6Z96UMM\",\"text\":\"Women lnnerwear\",\"source\":\"alias\"}]','2026-03-17 05:29:09','2026-03-17 05:29:09'),
-('CCW9KF90NM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"27\",\"text\":\"Jimmy Choo Silk Saree\",\"source\":\"brand\"},{\"id\":\"CCW9KF90NM\",\"text\":\" JENIFER PURE SOFT JIMMY CHOO SILK SAREE\",\"source\":\"alias\"}]','2026-03-21 11:44:06','2026-03-21 11:44:06'),
-('CCWC52GXMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"5\",\"text\":\"Jamdani Saree\",\"source\":\"brand\"},{\"id\":\"CCWC52GXMM\",\"text\":\"Jamdani Saree\",\"source\":\"alias\"}]','2026-03-19 12:26:19','2026-03-19 12:26:19'),
-('CCWCD6WYMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"19\",\"text\":\"Pure Silk Swarnachuri Saree\",\"source\":\"brand\"},{\"id\":\"CCWCD6WYMM\",\"text\":\"Swarnachuri Saree\",\"source\":\"alias\"}]','2026-03-20 12:45:16','2026-03-20 12:45:16'),
-('CCWK8LXYMM','[{\"id\":\"4\",\"text\":\"Ladies HandBag\",\"source\":\"generic\"},{\"id\":\"55\",\"text\":\"Bags-Bags\",\"source\":\"category\"},{\"id\":\"24\",\"text\":\"Exotic Ladies Handbag\",\"source\":\"brand\"},{\"id\":\"CCWK8LXYMM\",\"text\":\"Exotic Ladies Handbag\",\"source\":\"alias\"}]','2026-03-20 13:24:49','2026-03-20 13:24:49'),
-('CCWKLTWYMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"12\",\"text\":\"Sartin Saree\",\"source\":\"brand\"},{\"id\":\"CCWKLTWYMM\",\"text\":\"Maliska Sartin Silk Saree\",\"source\":\"alias\"}]','2026-03-20 13:03:20','2026-03-20 13:03:20'),
-('CCX1BNGXMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"9\",\"text\":\"Katan Silk Banarasi Saree\",\"source\":\"brand\"},{\"id\":\"CCX1BNGXMM\",\"text\":\"Katan Silk Banarasi Saree\",\"source\":\"alias\"}]','2026-03-19 12:42:46','2026-03-19 12:42:46'),
-('CCX3MG5UMM','[{\"id\":\"2\",\"text\":\"Woman Innerwear\",\"source\":\"generic\"},{\"id\":\"19\",\"text\":\"Women\'s Fashion-Bras & Panties\",\"source\":\"category\"},{\"id\":\"2\",\"text\":\"One Star\",\"source\":\"brand\"},{\"id\":\"CCX3MG5UMM\",\"text\":\"Woman Innerwear\",\"source\":\"alias\"}]','2026-03-17 05:06:20','2026-03-17 05:06:20'),
-('CCXRQ6IXMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"11\",\"text\":\"Open Border Silk Saree\",\"source\":\"brand\"},{\"id\":\"CCXRQ6IXMM\",\"text\":\"Open Border Silk Saree\",\"source\":\"alias\"}]','2026-03-19 13:25:53','2026-03-19 13:25:53'),
-('CCXU6EIXMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"9\",\"text\":\"Katan Silk Banarasi Saree\",\"source\":\"brand\"},{\"id\":\"CCXU6EIXMM\",\"text\":\"Katan Silk Banarasi Saree \",\"source\":\"alias\"}]','2026-03-19 13:31:40','2026-03-19 13:31:40'),
-('CCYTRGVYMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"6\",\"text\":\"Silky Saree\",\"source\":\"brand\"},{\"id\":\"CCYTRGVYMM\",\"text\":\"Silk Saree\",\"source\":\"alias\"}]','2026-03-20 12:25:22','2026-03-20 12:25:22'),
-('CCZAXTHXMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"16\",\"text\":\"Fandy Silk Saree\",\"source\":\"brand\"},{\"id\":\"CCZAXTHXMM\",\"text\":\"Pure Fandy Silk Saree\",\"source\":\"alias\"}]','2026-03-19 13:15:54','2026-03-19 13:15:54'),
-('CCZCQEYYMM','[{\"id\":\"3\",\"text\":\"Saree\",\"source\":\"generic\"},{\"id\":\"9\",\"text\":\"Women\'s Fashion-Sarees\",\"source\":\"category\"},{\"id\":\"20\",\"text\":\"Handloom Saree\",\"source\":\"brand\"},{\"id\":\"CCZCQEYYMM\",\"text\":\"Pure Cotton Handloom Saree\",\"source\":\"alias\"}]','2026-03-20 13:47:45','2026-03-20 13:47:45'),
-('CCZXY6YYMM','[{\"id\":\"4\",\"text\":\"Ladies HandBag\",\"source\":\"generic\"},{\"id\":\"59\",\"text\":\"Bags-Hand Purse\",\"source\":\"category\"},{\"id\":\"25\",\"text\":\"leather Handbag for Women\",\"source\":\"brand\"},{\"id\":\"CCZXY6YYMM\",\"text\":\" Hand Purse\",\"source\":\"alias\"}]','2026-03-20 13:41:43','2026-03-20 13:41:43');
-/*!40000 ALTER TABLE `item_name` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1105,8 +1003,129 @@ INSERT INTO `item_soundx` VALUES
 ('CCBOXCA0NM',9,20,3,1,1,'saree',120,'2026-03-21 12:10:03','2026-03-21 12:10:03'),
 ('CCBOXCA0NM',9,20,3,1,1,'women',33.3333,'2026-03-21 12:10:03','2026-03-21 12:10:03'),
 ('CCBOXCA0NM',9,20,3,1,1,'handloom',69.2308,'2026-03-21 12:10:03','2026-03-21 12:10:03'),
-('CCBOXCA0NM',9,20,3,1,1,'handloom',69.2308,'2026-03-21 12:10:03','2026-03-21 12:10:03');
+('CCBOXCA0NM',9,20,3,1,1,'handloom',69.2308,'2026-03-21 12:10:03','2026-03-21 12:10:03'),
+('CCP2TFKENM',44,29,8,1,1,'men',33.3333,'2026-03-31 12:01:00','2026-03-31 12:01:00'),
+('CCP2TFKENM',44,29,8,1,1,'innerwear',111.111,'2026-03-31 12:01:00','2026-03-31 12:01:00'),
+('CCP2TFKENM',44,29,8,1,1,'lux',57.1429,'2026-03-31 12:01:00','2026-03-31 12:01:00'),
+('CCP2TFKENM',44,29,8,1,1,'lux',16.6667,'2026-03-31 12:01:00','2026-03-31 12:01:00'),
+('CCJSN3LENM',9,6,3,1,1,'saree',120,'2026-03-31 12:19:33','2026-03-31 12:19:33'),
+('CCJSN3LENM',9,6,3,1,1,'sarees',116.667,'2026-03-31 12:19:33','2026-03-31 12:19:33'),
+('CCJSN3LENM',9,6,3,1,1,'shantipur',111.111,'2026-03-31 12:19:33','2026-03-31 12:19:33'),
+('CCJSN3LENM',9,6,3,1,1,'handloom',69.2308,'2026-03-31 12:19:33','2026-03-31 12:19:33'),
+('CCEIGALENM',9,6,3,1,1,'saree',120,'2026-03-31 12:24:50','2026-03-31 12:24:50'),
+('CCEIGALENM',9,6,3,1,1,'sarees',116.667,'2026-03-31 12:24:50','2026-03-31 12:24:50'),
+('CCEIGALENM',9,6,3,1,1,'shantipur',111.111,'2026-03-31 12:24:50','2026-03-31 12:24:50'),
+('CCEIGALENM',9,6,3,1,1,'handloom',69.2308,'2026-03-31 12:24:50','2026-03-31 12:24:50'),
+('CCZATVLFNM',46,30,9,1,1,'bermuda',61.5385,'2026-04-01 05:29:12','2026-04-01 05:29:12'),
+('CCZATVLFNM',46,30,9,1,1,'shorts',116.667,'2026-04-01 05:29:12','2026-04-01 05:29:12'),
+('CCZATVLFNM',46,30,9,1,1,'rupa',125,'2026-04-01 05:29:12','2026-04-01 05:29:12'),
+('CCZATVLFNM',46,30,9,1,1,'mercerised',35.4839,'2026-04-01 05:29:12','2026-04-01 05:29:12'),
+('CCBL22NFNM',31,31,10,1,1,'half',55.5556,'2026-04-01 06:02:04','2026-04-01 06:02:04'),
+('CCBL22NFNM',31,31,10,1,1,'casual',58.3333,'2026-04-01 06:02:04','2026-04-01 06:02:04'),
+('CCBL22NFNM',31,31,10,1,1,'sonajhuri',111.111,'2026-04-01 06:02:04','2026-04-01 06:02:04'),
+('CCBL22NFNM',31,31,10,1,1,'printed',28.5714,'2026-04-01 06:02:04','2026-04-01 06:02:04'),
+('CC6CPLNFNM',43,31,11,1,1,'men',50,'2026-04-01 06:17:20','2026-04-01 06:17:20'),
+('CC6CPLNFNM',43,31,11,1,1,'shirts',116.667,'2026-04-01 06:17:20','2026-04-01 06:17:20'),
+('CC6CPLNFNM',43,31,11,1,1,'sonajhuri',111.111,'2026-04-01 06:17:20','2026-04-01 06:17:20'),
+('CC6CPLNFNM',43,31,11,1,1,'men',11.7647,'2026-04-01 06:17:20','2026-04-01 06:17:20'),
+('CCFW5VNFNM',46,32,8,1,1,'men',33.3333,'2026-04-01 06:24:41','2026-04-01 06:24:41'),
+('CCFW5VNFNM',46,32,8,1,1,'shorts',116.667,'2026-04-01 06:24:41','2026-04-01 06:24:41'),
+('CCFW5VNFNM',46,32,8,1,1,'dollar',116.667,'2026-04-01 06:24:41','2026-04-01 06:24:41'),
+('CCFW5VNFNM',46,32,8,1,1,'dollar',30.4348,'2026-04-01 06:24:41','2026-04-01 06:24:41'),
+('CC6YQOOFNM',10,31,11,1,1,'men',50,'2026-04-01 06:47:41','2026-04-01 06:47:41'),
+('CC6YQOOFNM',10,31,11,1,1,'kurtas',58.3333,'2026-04-01 06:47:41','2026-04-01 06:47:41'),
+('CC6YQOOFNM',10,31,11,1,1,'sonajhuri',111.111,'2026-04-01 06:47:41','2026-04-01 06:47:41'),
+('CC6YQOOFNM',10,31,11,1,1,'man',11.7647,'2026-04-01 06:47:41','2026-04-01 06:47:41'),
+('CC4D30PFNM',46,33,9,1,1,'bermuda',61.5385,'2026-04-01 06:56:31','2026-04-01 06:56:31'),
+('CC4D30PFNM',46,33,9,1,1,'shorts',116.667,'2026-04-01 06:56:31','2026-04-01 06:56:31'),
+('CC4D30PFNM',46,33,9,1,1,'boxer',120,'2026-04-01 06:56:31','2026-04-01 06:56:31'),
+('CC4D30PFNM',46,33,9,1,1,'pure',21.7391,'2026-04-01 06:56:31','2026-04-01 06:56:31'),
+('CCUQT1YFNM',31,31,10,1,1,'half',55.5556,'2026-04-01 11:09:48','2026-04-01 11:09:48'),
+('CCUQT1YFNM',31,31,10,1,1,'casual',58.3333,'2026-04-01 11:09:48','2026-04-01 11:09:48'),
+('CCUQT1YFNM',31,31,10,1,1,'sonajhuri',111.111,'2026-04-01 11:09:48','2026-04-01 11:09:48'),
+('CCUQT1YFNM',31,31,10,1,1,'printed',28.5714,'2026-04-01 11:09:48','2026-04-01 11:09:48'),
+('CCVPUOYFNM',31,31,11,1,1,'men',50,'2026-04-01 11:27:42','2026-04-01 11:27:42'),
+('CCVPUOYFNM',31,31,11,1,1,'casual',58.3333,'2026-04-01 11:27:42','2026-04-01 11:27:42'),
+('CCVPUOYFNM',31,31,11,1,1,'sonajhuri',111.111,'2026-04-01 11:27:42','2026-04-01 11:27:42'),
+('CCVPUOYFNM',31,31,11,1,1,'men',11.7647,'2026-04-01 11:27:43','2026-04-01 11:27:43'),
+('CC3XW6ZFNM',46,34,9,1,1,'bermuda',61.5385,'2026-04-01 11:41:45','2026-04-01 11:41:45'),
+('CC3XW6ZFNM',46,34,9,1,1,'shorts',116.667,'2026-04-01 11:41:45','2026-04-01 11:41:45'),
+('CC3XW6ZFNM',46,34,9,1,1,'neo',133.333,'2026-04-01 11:41:45','2026-04-01 11:41:45'),
+('CC3XW6ZFNM',46,34,9,1,1,'neo',40,'2026-04-01 11:41:45','2026-04-01 11:41:45'),
+('CCUWJNZFNM',39,31,12,1,1,'punjabi',61.5385,'2026-04-01 11:54:41','2026-04-01 11:54:41'),
+('CCUWJNZFNM',39,31,12,1,1,'punjabi',57.1429,'2026-04-01 11:54:41','2026-04-01 11:54:41'),
+('CCUWJNZFNM',39,31,12,1,1,'sonajhuri',111.111,'2026-04-01 11:54:41','2026-04-01 11:54:41'),
+('CCUWJNZFNM',39,31,12,1,1,'men',11.1111,'2026-04-01 11:54:41','2026-04-01 11:54:41'),
+('CCPPP30GNM',39,31,12,1,1,'punjabi',61.5385,'2026-04-01 12:07:15','2026-04-01 12:07:15'),
+('CCPPP30GNM',39,31,12,1,1,'punjabi',57.1429,'2026-04-01 12:07:15','2026-04-01 12:07:15'),
+('CCPPP30GNM',39,31,12,1,1,'sonajhuri',111.111,'2026-04-01 12:07:15','2026-04-01 12:07:15'),
+('CCPPP30GNM',39,31,12,1,1,'men',11.1111,'2026-04-01 12:07:15','2026-04-01 12:07:15'),
+('CCGFJB0GNM',39,31,12,1,1,'punjabi',61.5385,'2026-04-01 12:13:21','2026-04-01 12:13:21'),
+('CCGFJB0GNM',39,31,12,1,1,'punjabi',57.1429,'2026-04-01 12:13:21','2026-04-01 12:13:21'),
+('CCGFJB0GNM',39,31,12,1,1,'sonajhuri',111.111,'2026-04-01 12:13:21','2026-04-01 12:13:21'),
+('CCGFJB0GNM',39,31,12,1,1,'men',11.7647,'2026-04-01 12:13:21','2026-04-01 12:13:21'),
+('CCTLPI0GNM',39,31,12,1,1,'punjabi',61.5385,'2026-04-01 12:18:55','2026-04-01 12:18:55'),
+('CCTLPI0GNM',39,31,12,1,1,'punjabi',57.1429,'2026-04-01 12:18:55','2026-04-01 12:18:55'),
+('CCTLPI0GNM',39,31,12,1,1,'sonajhuri',111.111,'2026-04-01 12:18:55','2026-04-01 12:18:55'),
+('CCTLPI0GNM',39,31,12,1,1,'men',11.7647,'2026-04-01 12:18:55','2026-04-01 12:18:55');
 /*!40000 ALTER TABLE `item_soundx` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `item_variant`
+--
+
+DROP TABLE IF EXISTS `item_variant`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `item_variant` (
+  `sku_id` varchar(50) NOT NULL,
+  `item_id` varchar(10) NOT NULL,
+  `size` varchar(30) DEFAULT NULL,
+  `color` varchar(30) DEFAULT NULL,
+  `unit_mrp` float unsigned NOT NULL,
+  `unit_price` float unsigned NOT NULL,
+  `stock` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `active` tinyint(1) NOT NULL DEFAULT 1,
+  `created_on` timestamp NOT NULL DEFAULT current_timestamp(),
+  `modified_on` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`sku_id`),
+  KEY `item_variant_item_id_idx` (`item_id`),
+  CONSTRAINT `item_variant_item_fk` FOREIGN KEY (`item_id`) REFERENCES `item` (`item_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `item_variant`
+--
+
+LOCK TABLES `item_variant` WRITE;
+/*!40000 ALTER TABLE `item_variant` DISABLE KEYS */;
+INSERT INTO `item_variant` VALUES
+('SKUE60WMNFNM','CC6CPLNFNM','42','Black',399,215,1,1,'2026-04-01 06:18:15','2026-04-01 06:18:15'),
+('SKUIN7OHMFNM','CCZATVLFNM','XL','Sky Blue',439,320,1,1,'2026-04-01 05:46:12','2026-04-01 05:46:12'),
+('SKUOEVMGLENM','CCP2TFKENM','85','Red',189,125,1,1,'2026-03-31 12:29:38','2026-04-01 05:16:16'),
+('SKUOHFH5MFNM','CCZATVLFNM','L','Black',439,320,1,1,'2026-04-01 05:36:43','2026-04-01 05:36:43'),
+('SKUP6RU3NFNM','CCBL22NFNM','42','Sky Bule',399,240,1,1,'2026-04-01 06:03:27','2026-04-01 06:03:27'),
+('SKUPKHXOZFNM','CCUWJNZFNM','42','Green',355,280,1,1,'2026-04-01 11:55:46','2026-04-01 11:55:46'),
+('SKUPP1J8ZFNM','CC3XW6ZFNM','L','Sky Blue',249,190,1,1,'2026-04-01 11:43:00','2026-04-01 11:43:00'),
+('SKUPP65BLENM','CCEIGALENM',NULL,NULL,499,375,1,1,'2026-03-31 12:25:22','2026-03-31 12:25:22'),
+('SKUPW9160GNM','CCPPP30GNM','44','Red',450,300,1,1,'2026-04-01 12:09:04','2026-04-01 12:09:04'),
+('SKUQEMK9YFNM','CCUQT1YFNM','40','Blue',299,240,1,1,'2026-04-01 11:15:50','2026-04-01 11:15:50'),
+('SKURDBNXLFNM','CCZATVLFNM','XL','Black',439,320,1,1,'2026-04-01 05:30:38','2026-04-01 05:30:38'),
+('SKURTNS4OFNM','CCFW5VNFNM','85','Navy Blue',199,125,1,1,'2026-04-01 06:32:11','2026-04-01 06:32:11'),
+('SKUT8HR1MFNM','CCZATVLFNM','XXL','Red',439,320,1,1,'2026-04-01 05:33:50','2026-04-01 05:33:50'),
+('SKUTB6CG0GNM','CCGFJB0GNM','44','Bright Green',410,280,1,1,'2026-04-01 12:17:04','2026-04-01 12:17:04'),
+('SKUTU65DMFNM','CCZATVLFNM','XXL','Green',439,320,1,1,'2026-04-01 05:42:41','2026-04-01 05:42:41'),
+('SKUU6ESL0GNM','CCTLPI0GNM','44','Blue',410,280,1,1,'2026-04-01 12:21:19','2026-04-01 12:21:19'),
+('SKUUE1D1OFNM','CCFW5VNFNM','100','Dark Brown',299,140,1,1,'2026-04-01 06:29:30','2026-04-01 06:29:30'),
+('SKUUMVO2PFNM','CC4D30PFNM','L','Navy Blue',299,190,1,1,'2026-04-01 06:58:32','2026-04-01 06:58:32'),
+('SKUY0V3RYFNM','CCVPUOYFNM','48','Blue',299,240,1,1,'2026-04-01 11:29:28','2026-04-01 11:29:28'),
+('SKUY2N1YNFNM','CCFW5VNFNM','95','Black',299,140,1,1,'2026-04-01 06:26:56','2026-04-01 06:26:56'),
+('SKUYB2TROFNM','CC6YQOOFNM','50','White',299,215,1,1,'2026-04-01 06:50:04','2026-04-01 06:50:04'),
+('SKUYDLIHKENM','CCP2TFKENM','85','Gray',189,125,1,1,'2026-03-31 12:02:19','2026-03-31 12:02:19'),
+('SKUYPP66LENM','CCJSN3LENM',NULL,NULL,799,515,1,1,'2026-03-31 12:21:30','2026-03-31 12:21:30');
+/*!40000 ALTER TABLE `item_variant` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1163,7 +1182,11 @@ CREATE TABLE `order_item` (
   `closed_on` timestamp NULL DEFAULT NULL,
   `created_on` timestamp NOT NULL DEFAULT current_timestamp(),
   `modified_on` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`order_id`,`item_id`)
+  `sku_id` varchar(50) NOT NULL DEFAULT '',
+  `variant_label` varchar(100) NOT NULL DEFAULT '',
+  `courier_name` varchar(50) DEFAULT NULL,
+  `tracking_id` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`order_id`,`item_id`,`sku_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1173,6 +1196,8 @@ CREATE TABLE `order_item` (
 
 LOCK TABLES `order_item` WRITE;
 /*!40000 ALTER TABLE `order_item` DISABLE KEYS */;
+INSERT INTO `order_item` VALUES
+('ORDRIWOWEWYUEM9I259Y','CCJSN3LENM','CCFR828QMM','Handloom saree','Saree','Sarees','Shantipur','Shri Textile','https://vendor.e-craft.in/uploads/CCJSN3LENM_69cbbcaa96ba8_lg.jpeg',799,515,1,284,0,0,515,'[{\"status\":\"initiated\",\"on\":\"2026-04-05T06:25:59.300Z\",\"by\":\"customer\",\"remark\":\"The order has been initiated by the customer having user_id:UMN471RJUF\"},{\"status\":\"Shipped\",\"on\":\"2026-04-06 10:44:35\",\"by\":\"CRAFT COTTAGE\",\"remark\":\"\"},{\"status\":\"Shipped\",\"on\":\"2026-04-06 10:45:28\",\"by\":\"CRAFT COTTAGE\",\"remark\":\"\"},{\"status\":\"Delivered\",\"on\":\"2026-04-09 11:37:49\",\"by\":\"CRAFT COTTAGE\",\"remark\":\"\"}]',13349,'2026-04-09 11:37:49','2026-04-05 06:25:59','2026-04-09 11:37:49','SKUYPP66LENM','',NULL,NULL);
 /*!40000 ALTER TABLE `order_item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1211,6 +1236,8 @@ CREATE TABLE `order_master` (
 
 LOCK TABLES `order_master` WRITE;
 /*!40000 ALTER TABLE `order_master` DISABLE KEYS */;
+INSERT INTO `order_master` VALUES
+('ORDRIWOWEWYUEM9I259Y','UMN471RJUF','UAWURTET6CIYRX','RANU ROY','DWARIAPUR','PURBA BARDHAMAN','WEST BENGAL',713128,564,'Cash on Delivery',0,NULL,NULL,'[{\"status\":\"initiated\",\"on\":\"2026-04-05T06:25:59.300Z\",\"by\":\"customer\",\"remark\":\"The order has been initiated by the customer having user_id:UMN471RJUF\"}]','2026-04-09 11:37:49','2026-04-05 06:25:59','2026-04-09 11:37:49');
 /*!40000 ALTER TABLE `order_master` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1367,6 +1394,53 @@ LOCK TABLES `section` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `shipments`
+--
+
+DROP TABLE IF EXISTS `shipments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `shipments` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `order_id` varchar(100) NOT NULL,
+  `vendor_id` varchar(10) DEFAULT NULL,
+  `item_ids` varchar(255) DEFAULT NULL,
+  `customer_name` varchar(255) DEFAULT NULL,
+  `customer_email` varchar(255) DEFAULT NULL,
+  `carrier` varchar(50) NOT NULL,
+  `service` varchar(100) DEFAULT NULL,
+  `tracking_number` varchar(100) DEFAULT NULL,
+  `label_url` text DEFAULT NULL,
+  `status` enum('pending','label_created','picked_up','in_transit','out_for_delivery','delivered','cancelled','exception') NOT NULL DEFAULT 'pending',
+  `last_tracking_event` text DEFAULT NULL,
+  `rate` decimal(10,2) DEFAULT NULL,
+  `currency` varchar(10) NOT NULL DEFAULT 'USD',
+  `pickup_confirmed` tinyint(1) NOT NULL DEFAULT 0,
+  `manifest_id` varchar(100) DEFAULT NULL,
+  `origin_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`origin_data`)),
+  `destination_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`destination_data`)),
+  `package_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`package_data`)),
+  `raw_response` longtext DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `order_id` (`order_id`),
+  KEY `vendor_id` (`vendor_id`),
+  KEY `tracking_number` (`tracking_number`),
+  KEY `status` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `shipments`
+--
+
+LOCK TABLES `shipments` WRITE;
+/*!40000 ALTER TABLE `shipments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `shipments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `superadmin`
 --
 
@@ -1442,7 +1516,9 @@ CREATE TABLE `user` (
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` VALUES
-('UMN471RJUF','RANU ROY',NULL,'9800758192',NULL,1,'2026-03-24 05:48:28','2026-03-24 05:48:28');
+('UMN471RJUF','RANU ROY',NULL,'9800758192',NULL,1,'2026-03-24 05:48:28','2026-03-24 05:48:28'),
+('UMNSLR2JCD','Adrish rana',NULL,'9883665296',NULL,1,'2026-04-10 07:46:31','2026-04-10 07:46:31'),
+('UMNUI08OR1','Piu pa',NULL,'8101615236',NULL,1,'2026-04-11 15:37:13','2026-04-11 15:37:13');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1555,4 +1631,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-03-26  5:18:32
+-- Dump completed on 2026-04-13 17:57:53
