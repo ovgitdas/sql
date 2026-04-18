@@ -1197,7 +1197,8 @@ CREATE TABLE `order_item` (
 LOCK TABLES `order_item` WRITE;
 /*!40000 ALTER TABLE `order_item` DISABLE KEYS */;
 INSERT INTO `order_item` VALUES
-('ORDRIWOWEWYUEM9I259Y','CCJSN3LENM','CCFR828QMM','Handloom saree','Saree','Sarees','Shantipur','Shri Textile','https://vendor.e-craft.in/uploads/CCJSN3LENM_69cbbcaa96ba8_lg.jpeg',799,515,1,284,0,0,515,'[{\"status\":\"initiated\",\"on\":\"2026-04-05T06:25:59.300Z\",\"by\":\"customer\",\"remark\":\"The order has been initiated by the customer having user_id:UMN471RJUF\"},{\"status\":\"Shipped\",\"on\":\"2026-04-06 10:44:35\",\"by\":\"CRAFT COTTAGE\",\"remark\":\"\"},{\"status\":\"Shipped\",\"on\":\"2026-04-06 10:45:28\",\"by\":\"CRAFT COTTAGE\",\"remark\":\"\"},{\"status\":\"Delivered\",\"on\":\"2026-04-09 11:37:49\",\"by\":\"CRAFT COTTAGE\",\"remark\":\"\"}]',13349,'2026-04-09 11:37:49','2026-04-05 06:25:59','2026-04-09 11:37:49','SKUYPP66LENM','',NULL,NULL);
+('ORDRIWOWEWYUEM9I259Y','CCJSN3LENM','CCFR828QMM','Handloom saree','Saree','Sarees','Shantipur','Shri Textile','https://vendor.e-craft.in/uploads/CCJSN3LENM_69cbbcaa96ba8_lg.jpeg',799,515,1,284,0,0,515,'[{\"status\":\"initiated\",\"on\":\"2026-04-05T06:25:59.300Z\",\"by\":\"customer\",\"remark\":\"The order has been initiated by the customer having user_id:UMN471RJUF\"},{\"status\":\"Shipped\",\"on\":\"2026-04-06 10:44:35\",\"by\":\"CRAFT COTTAGE\",\"remark\":\"\"},{\"status\":\"Shipped\",\"on\":\"2026-04-06 10:45:28\",\"by\":\"CRAFT COTTAGE\",\"remark\":\"\"},{\"status\":\"Delivered\",\"on\":\"2026-04-09 11:37:49\",\"by\":\"CRAFT COTTAGE\",\"remark\":\"\"}]',13349,'2026-04-09 11:37:49','2026-04-05 06:25:59','2026-04-09 11:37:49','SKUYPP66LENM','',NULL,NULL),
+('ORDRTEEYRYQTU3W4U3PY','CC3ODJ80NM','CCFR828QMM','Pure Cotton Handloom Saree','Saree','Sarees','Handloom Saree','Babosa Saree','https://vendor.e-craft.in/uploads/CC3ODJ80NM_69be7ed155923_lg.jpeg',599,380,1,219,0,0,380,'[{\"status\":\"initiated\",\"on\":\"2026-04-16T10:35:47.910Z\",\"by\":\"customer\",\"remark\":\"The order has been initiated by the customer having user_id:UMO1CCADA1\"}]',11493,NULL,'2026-04-16 10:35:47','2026-04-16 10:35:47','','',NULL,NULL);
 /*!40000 ALTER TABLE `order_item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1237,7 +1238,8 @@ CREATE TABLE `order_master` (
 LOCK TABLES `order_master` WRITE;
 /*!40000 ALTER TABLE `order_master` DISABLE KEYS */;
 INSERT INTO `order_master` VALUES
-('ORDRIWOWEWYUEM9I259Y','UMN471RJUF','UAWURTET6CIYRX','RANU ROY','DWARIAPUR','PURBA BARDHAMAN','WEST BENGAL',713128,564,'Cash on Delivery',0,NULL,NULL,'[{\"status\":\"initiated\",\"on\":\"2026-04-05T06:25:59.300Z\",\"by\":\"customer\",\"remark\":\"The order has been initiated by the customer having user_id:UMN471RJUF\"}]','2026-04-09 11:37:49','2026-04-05 06:25:59','2026-04-09 11:37:49');
+('ORDRIWOWEWYUEM9I259Y','UMN471RJUF','UAWURTET6CIYRX','RANU ROY','DWARIAPUR','PURBA BARDHAMAN','WEST BENGAL',713128,564,'Cash on Delivery',0,NULL,NULL,'[{\"status\":\"initiated\",\"on\":\"2026-04-05T06:25:59.300Z\",\"by\":\"customer\",\"remark\":\"The order has been initiated by the customer having user_id:UMN471RJUF\"}]','2026-04-09 11:37:49','2026-04-05 06:25:59','2026-04-09 11:37:49'),
+('ORDRTEEYRYQTU3W4U3PY','UMO1CCADA1','UAQEOYEJ1ES3PY','Manas Mitra','Jerula ','BIRBHUM','WEST BENGAL',731234,429,'Cash on Delivery',0,NULL,NULL,'[{\"status\":\"initiated\",\"on\":\"2026-04-16T10:35:47.910Z\",\"by\":\"customer\",\"remark\":\"The order has been initiated by the customer having user_id:UMO1CCADA1\"}]',NULL,'2026-04-16 10:35:47','2026-04-16 10:35:47');
 /*!40000 ALTER TABLE `order_master` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1518,7 +1520,9 @@ LOCK TABLES `user` WRITE;
 INSERT INTO `user` VALUES
 ('UMN471RJUF','RANU ROY',NULL,'9800758192',NULL,1,'2026-03-24 05:48:28','2026-03-24 05:48:28'),
 ('UMNSLR2JCD','Adrish rana',NULL,'9883665296',NULL,1,'2026-04-10 07:46:31','2026-04-10 07:46:31'),
-('UMNUI08OR1','Piu pa',NULL,'8101615236',NULL,1,'2026-04-11 15:37:13','2026-04-11 15:37:13');
+('UMNUI08OR1','Piu pa',NULL,'8101615236',NULL,1,'2026-04-11 15:37:13','2026-04-11 15:37:13'),
+('UMO1CCADA1','Manas Mitra ',NULL,'8617848598',NULL,1,'2026-04-16 10:33:01','2026-04-16 10:33:01'),
+('UMO3WCDANY','Anup  kumaar bharui',NULL,'8145963796',NULL,1,'2026-04-18 05:28:29','2026-04-18 05:28:29');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1552,6 +1556,7 @@ CREATE TABLE `user_address` (
 LOCK TABLES `user_address` WRITE;
 /*!40000 ALTER TABLE `user_address` DISABLE KEYS */;
 INSERT INTO `user_address` VALUES
+('UAQEOYEJ1ES3PY','UMO1CCADA1','Manas Mitra','Jerula ','Kundola ','Jerula ','BIRBHUM','WEST BENGAL',731234,'2026-04-16 10:34:26','2026-04-16 10:34:26'),
 ('UAWURTET6CIYRX','UMN471RJUF','RANU ROY','DWARIAPUR','GONNA DWARIAPUR','NEAR POST OFFICE','PURBA BARDHAMAN','WEST BENGAL',713128,'2026-03-24 05:50:15','2026-03-24 05:50:15');
 /*!40000 ALTER TABLE `user_address` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1631,4 +1636,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-04-13 17:57:53
+-- Dump completed on 2026-04-18  6:04:28
